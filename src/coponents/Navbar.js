@@ -3,18 +3,17 @@ import { Link } from "react-router-dom";
 import {
   faHome,
   faEllipsisV,
-  faMoon, //do przeniesienia
-  faBookmark, //do przeniesienia
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { StyledList, StyledNavbar } from "./styles/StyledNavbar";
+import UserOptions from "./UserOptions";
 
 const Navbar = () => {
   const [optionVisible, setOptionVisible] = useState(false);
 
   return (
     <StyledNavbar>
-      <StyledList>
+      <StyledList nightmode={false}>
         <li className="nav-list__item">
           <Link to="/">
             <FontAwesomeIcon icon={faHome} />
@@ -26,6 +25,12 @@ const Navbar = () => {
           </button>
         </li>
       </StyledList>
+
+
+      {optionVisible && (
+        <UserOptions />
+      )}
+
     </StyledNavbar>
   );
 };

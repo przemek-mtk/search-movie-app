@@ -11,6 +11,7 @@ export const themeLight = {
   onprimary: "#FFFFFF",
   onsecondary: "#000000",
   onerror: "#FFFFFF",
+  shadow: "#BABABA"
 } 
 
 export const themeDark = {
@@ -28,6 +29,7 @@ export const themeDark = {
   onprimary: "#FFFFFF",
   onsecondary: "#FFFFFF",
   onerror: "#000000",
+  shadow: "#EBECF0" //lub to "#F7F7F7"
 }
 
 /**
