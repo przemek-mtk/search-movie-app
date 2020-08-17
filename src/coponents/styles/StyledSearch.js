@@ -6,30 +6,35 @@ const StyledSearch = styled.section`
   
   /* może tylko dla dużych szerokości */
   /* display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center; */
   font-family: 'Open Sans', sans-serif;
+  
 
 
   .search-box {
     width: 90%;
     max-width: 700px;
     /*dla testu -- height*/
-    height: 150px; 
+    min-height: 150px; 
     margin: 40px auto;
-    padding: 10px 20px;
+    padding: 10px 20px 0;
     background: ${props => props.theme.surface};
     box-shadow: 0 0 4px ${props => props.theme.shadow};
     border-radius: 4px;
 
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+    flex-wrap: wrap;
   }
 
   .search-box form {
-    width: 100%;  
+    width: 100%;
+    margin-top: 30px;
     position: relative;
+    flex: 1 1 auto;
   }
 
   .search-box__input {

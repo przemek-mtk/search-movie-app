@@ -1,9 +1,12 @@
 import React from "react";
 import StyledSearch from "./styles/StyledSearch";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faCog } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import SearchOptions from "./SearchOptions";
+import StyledBtnOption from "./styles/StyledBtnOption"
 
-const Search = () => {
+const Search = (props) => {
+
   return (
     <StyledSearch>
       <div className="search-box">
@@ -16,6 +19,16 @@ const Search = () => {
             </div>
           </label>
         </form>
+
+        <StyledBtnOption >
+          <FontAwesomeIcon icon={faCog} />
+          <span>options</span>
+        </StyledBtnOption>
+      
+      {false && 
+        <SearchOptions />
+      }
+
       </div>
     </StyledSearch>
   );
