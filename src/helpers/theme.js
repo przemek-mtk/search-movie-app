@@ -7,7 +7,7 @@ export const themeLight = {
   secondary: "#D6BA14",
   error: "#B00020",
   onbackground: "#000000",
-  onsurface: "#000000",
+  onsurface: "#000000", //czy to ulegnie zmianie?
   onprimary: "#FFFFFF",
   onsecondary: "#000000",
   onerror: "#FFFFFF",

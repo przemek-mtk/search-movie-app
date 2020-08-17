@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Router } from "react-router-dom"
 import { ThemeProvider } from "styled-components";
 import { themeLight, themeDark } from "./helpers/theme";
 import Navbar from "./coponents/Navbar";
+import Search from "./coponents/Search";
 
 
 function App() {
@@ -15,6 +16,10 @@ function App() {
         <>
           <Navbar />
           <GloabalStyle />
+          
+          <Search />
+
+
         </>
       </ThemeProvider>
     </BrowserRouter>
