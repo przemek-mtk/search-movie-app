@@ -20,6 +20,7 @@ function App() {
           <Search />
 
 
+
         </>
       </ThemeProvider>
     </BrowserRouter>

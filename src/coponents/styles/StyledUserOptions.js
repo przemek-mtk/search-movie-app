@@ -4,33 +4,38 @@ const StyledUserOptions = styled.div`
   margin-top: 2px; 
   background: ${props => props.theme.surface};
   color: ${props => props.theme.onbackground};
-  font-family: 'Open Sans', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: capitalize;
   position: absolute;
   top: 100%;
   right: 10px;
-  border-radius: 8px;
+  border-radius: 4px;
   box-shadow: 0px 0px 2px 1px ${props => props.theme.shadow};
+  z-index: 9999;
 
-  .options__element {
-    padding: 10px 15px;
-  }
 
-  .options__element:hover {
-    background: ${props => props.theme.background};
-  }
-
-  .options__element:first-of-type {
+  button.options__element {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     border-bottom: 1px solid ${props => props.theme.shadow};
   }
 
-  .options__element:last-of-type {
+  a.options__element {
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
+  }
+
+  .options__element {
+    width: 100%;
+    display: block;
+    padding: 15px 15px;
+    border: none;
+    background: transparent;
+    color: ${props => props.theme.onsurface};
+    outline: none;
+    cursor:pointer;
+  }
+
+  .options__element:hover {
+    background: ${props => props.theme.background};
   }
 
   .options__element * {
@@ -39,13 +44,9 @@ const StyledUserOptions = styled.div`
     text-decoration: none;
   }
 
-  .options__element a {
-    width: 100%;
-    color: ${props => props.theme.onsurface};
-  }
-
   .options__element svg {
     font-size: 16px;
+    width: 16px;
     color: ${props => props.theme.primary};
   }
 
@@ -56,6 +57,10 @@ const StyledUserOptions = styled.div`
 
   .options__element span {
     padding: 0 15px;
+    
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
   }
 
   .options__element input[type="checkbox"]:focus + .switch{

@@ -22,7 +22,6 @@ const StyledSearch = styled.section`
     box-shadow: 0 0 4px ${props => props.theme.shadow};
     border-radius: 4px;
 
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,6 +40,7 @@ const StyledSearch = styled.section`
     font-weight: 400;
     border: 1px solid ${props => props.theme.onsurface};
     border-radius: 4px;
+    outline: none;
   }
 
 

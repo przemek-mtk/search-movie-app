@@ -20,7 +20,7 @@ export const StyledList = styled.ul`
     height: 48px;
     width: 48px;
     border: 2px solid transparent;
-    border-radius: 5px;
+    border-radius: 4px;
     margin: 0 10px;
   }
 
@@ -35,8 +35,8 @@ export const StyledList = styled.ul`
     color: ${props => props.theme.primary};
     background: transparent;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
+    outline: none;
   } 
 
   .nav-list__item:hover {
