@@ -1,10 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import NightmodeContextProvider from "./context/NightmodeContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <NightmodeContextProvider>
+      <App />
+    </NightmodeContextProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );

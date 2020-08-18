@@ -7,13 +7,13 @@ import StyledBtnOption from "./styles/StyledBtnOption";
 import { SearchContext } from "../context/SearchContext";
 
 const Search = (props) => {
-  const { search, dispatch } = useContext(SearchContext);
+  const { query, dispatch } = useContext(SearchContext);
   const [visibleOption, setVisibleOption] = useState(false);
   const [focus, setFocus] = useState(false);
 
   useEffect(() => {
-    search.query.length ? setFocus(true) : setFocus(false);
-  }, [search.query]);
+    query.length ? setFocus(true) : setFocus(false);
+  }, [query]);
 
   return (
     <StyledSearch>
@@ -24,7 +24,7 @@ const Search = (props) => {
               className={`search-box__input ${focus ? "focus" : ""}`}
               type="text"
               name="search"
-              value={search.query}
+              value={query}
               onChange={(e) =>
                 dispatch({ type: "CHANGE_QUERY", query: e.target.value })
               }

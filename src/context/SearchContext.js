@@ -1,10 +1,11 @@
 import React, { createContext, useReducer, useEffect } from "react";
+import PropTypes from "prop-types";
 import { searchReducer } from "../reducer/searchReducer";
 
 export const SearchContext = createContext();
 
 const SearchContextProvider = (props) => {
-  const [search, dispatch] = useReducer(searchReducer, {query: "", mediaType: "all", isError: false, isLoading: false, searchData: null });
+  const [search, dispatch] = useReducer(searchReducer, {query: "", mediaType: "multi", isError: false, isLoading: false, searchData: null });
   // const [query, setQuery] = useState("");
   // const [mediaType, setMediaType] = useState("all");
 
@@ -41,10 +42,14 @@ const SearchContextProvider = (props) => {
   }, [search.query]);
 
   return (
-    <SearchContext.Provider value={{ search, dispatch }}>
+    <SearchContext.Provider value={{ ...search, dispatch }}>
       {props.children}
     </SearchContext.Provider>
   );
 };
+
+SearchContextProvider.propTypes = {
+  children: PropTypes.element.isRequired
+}
 
 export default SearchContextProvider;

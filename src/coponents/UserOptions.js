@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import {
@@ -8,18 +8,21 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import StyledUserOptions from "./styles/StyledUserOptions";
 import { useOutsideClick } from "../hooks/useOutsideClick";
+import { NightmodeContext } from "../context/NightmodeContext";
 
 const UserOptions = ({ setOptionVisible }) => {
   const options = useRef(null);
   useOutsideClick(options, () => setOptionVisible(false));
 
+  const { nightmode, changeTheme } = useContext(NightmodeContext);
+
   return (
     <StyledUserOptions ref={options}>
-      <button className="options__element">
+      <button className="options__element" onClick={changeTheme}>
         <FontAwesomeIcon icon={faMoon} />
         <span>nightmode</span>
         <label>
-          <input type="checkbox" name="nightmode" />
+          <input type="checkbox" name="nightmode" onChange={changeTheme} checked={nightmode} />
           <span className="switch"></span>
         </label>
       </button>
