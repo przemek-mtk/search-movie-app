@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import StyledSearch from "./styles/StyledSearch";
 import { faSearch, faCog } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

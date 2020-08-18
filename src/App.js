@@ -5,6 +5,7 @@ import { ThemeProvider } from "styled-components";
 import { themeLight, themeDark } from "./helpers/theme";
 import Navbar from "./coponents/Navbar";
 import Search from "./coponents/Search";
+import SearchContextProvider from "./context/SearchContext"
 
 
 function App() {
@@ -13,15 +14,19 @@ function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={nightmode ? themeDark : themeLight}>
-        <>
-          <Navbar />
-          <GloabalStyle />
-          
-          <Search />
+        <SearchContextProvider>
+
+          <>
+            <Navbar />
+            <GloabalStyle />
+            
+            <Search />
 
 
 
-        </>
+          </>
+
+        </SearchContextProvider>
       </ThemeProvider>
     </BrowserRouter>
   );
