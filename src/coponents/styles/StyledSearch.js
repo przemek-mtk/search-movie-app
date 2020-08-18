@@ -53,7 +53,14 @@ const StyledSearch = styled.section`
     border-color: ${props => props.theme.onbackground};
   }
 
+/* style for focus input */
   .search-box__input:focus {
+    border-color: ${props => props.theme.primary};
+    box-shadow: 0 0 0 1px ${props => props.theme.primary};
+    caret-color: ${props => props.theme.primary};
+  }
+
+  .search-box__input.focus {
     border-color: ${props => props.theme.primary};
     box-shadow: 0 0 0 1px ${props => props.theme.primary};
     caret-color: ${props => props.theme.primary};
@@ -72,6 +79,13 @@ const StyledSearch = styled.section`
   }
 
   .search-box__input:focus + span {
+    font-size: 10px;
+    font-weight: 600;
+    color: ${props => props.theme.primary};
+    top: -6px;
+  }
+
+  .search-box__input.focus + span {
     font-size: 10px;
     font-weight: 600;
     color: ${props => props.theme.primary};
