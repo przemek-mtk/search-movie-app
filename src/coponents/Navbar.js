@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  faHome,
-  faEllipsisV,
-} from "@fortawesome/free-solid-svg-icons";
+import { faHome, faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { StyledList, StyledNavbar } from "./styles/StyledNavbar";
 import UserOptions from "./UserOptions";
@@ -20,17 +17,13 @@ const Navbar = () => {
           </Link>
         </li>
         <li className="nav-list__item">
-          <button>
+          <button onClick={() => setOptionVisible((prevState) => !prevState)}>
             <FontAwesomeIcon icon={faEllipsisV} />
           </button>
         </li>
       </StyledList>
 
-
-      {optionVisible && (
-        <UserOptions />
-      )}
-
+      {optionVisible && <UserOptions setOptionVisible={setOptionVisible} />}
     </StyledNavbar>
   );
 };

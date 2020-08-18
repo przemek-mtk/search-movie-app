@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import {
   faMoon, //do przeniesienia
@@ -6,10 +7,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import StyledUserOptions from "./styles/StyledUserOptions";
+import { useOutsideClick } from "../hooks/useOutsideClick";
 
-const UserOptions = () => {
+const UserOptions = ({ setOptionVisible }) => {
+  const options = useRef(null);
+  useOutsideClick(options, () => setOptionVisible(false));
+
   return (
-    <StyledUserOptions>
+    <StyledUserOptions ref={options}>
       <button className="options__element">
         <FontAwesomeIcon icon={faMoon} />
         <span>nightmode</span>
@@ -25,6 +30,10 @@ const UserOptions = () => {
       </Link>
     </StyledUserOptions>
   );
+};
+
+UserOptions.propTypes = {
+  setOptionVisible: PropTypes.func.isRequired,
 };
 
 export default UserOptions;
