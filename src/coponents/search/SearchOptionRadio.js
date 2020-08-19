@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import StyledSearchOptionRadio from "./styles/StyledSearchOptionRadio";
-import { SearchContext } from "../context/SearchContext";
+import { SearchContext } from "../../context/SearchContext";
 import PropTypes from "prop-types";
 
 const SearchOptionRadio = ({ value, label }) => {

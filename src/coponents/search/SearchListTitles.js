@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import StyledSearchListTitles from "./styles/StyledSearchListTitles";
-import { SearchContext } from "../context/SearchContext";
+import { SearchContext } from "../../context/SearchContext";
 import SearchItemTitle from "./SearchItemTitle";
 import PropTypes from "prop-types";
 

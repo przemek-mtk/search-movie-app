@@ -7,8 +7,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import StyledUserOptions from "./styles/StyledUserOptions";
-import { useOutsideClick } from "../hooks/useOutsideClick";
-import { NightmodeContext } from "../context/NightmodeContext";
+import { useOutsideClick } from "../../hooks/useOutsideClick";
+import { NightmodeContext } from "../../context/NightmodeContext";
 
 const UserOptions = ({ setOptionVisible }) => {
   const options = useRef(null);
