@@ -5,12 +5,11 @@ import StyledSearchItemTitle from "./styles/StyledSearchItemTitle";
 const SearchItemTitle = ({ item }) => {
   const { media_type, id, name } = item;
   const title = item.title || name;
-  
-console.log(item.id);
+  const type = media_type || "person";
 
   return (
     <StyledSearchItemTitle>
-      <Link key={id} to={`/${media_type}/${id}}`}>
+      <Link to={`/${type}/${id}`}>
         {title}
       </Link>
     </StyledSearchItemTitle>

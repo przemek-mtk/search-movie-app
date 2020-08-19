@@ -18,7 +18,7 @@ const SearchContextProvider = (props) => {
 
   useEffect(() => {
     const { query, mediaType } = search;
-    
+
     const fetch = async () => {
       dispatch({ type: "LOAD_DATA" });
       try {
@@ -32,9 +32,12 @@ const SearchContextProvider = (props) => {
       }
     };
 
-    if (query.length > 0) {
+    if (query.length !== 0) {
       fetch();
+    } else {
+      dispatch({ type: "EMPTY_QUERY" });
     }
+
   }, [search.query]);
 
   return (
@@ -49,3 +52,5 @@ SearchContextProvider.propTypes = {
 };
 
 export default SearchContextProvider;
+
+

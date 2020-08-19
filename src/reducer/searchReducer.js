@@ -3,6 +3,9 @@ export const searchReducer = (state, action) => {
     case "CHANGE_QUERY": {
       return { ...state, query: action.query };
     }
+    case "EMPTY_QUERY": {
+      return { ...state, searchData: [] };
+    }
     case "CHANGE_MEDIA_TYPE": {
       return { ...state, mediaType: action.mediaType };
     }

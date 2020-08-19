@@ -114,7 +114,8 @@ const StyledSearch = styled.section`
     height: auto;
     max-height: 200px;
     overflow-y: auto;
-    border: 1px solid ${props => props.theme.shadow}
+    border: 1px solid ${props => props.theme.shadow};
+    border-top: none;
   }
 
 `;

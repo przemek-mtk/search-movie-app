@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
 import StyledSearch from "./styles/StyledSearch";
-import { faSearch, faCog } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SearchOptions from "./SearchOptions";
-import StyledBtnOption from "./styles/StyledBtnOption";
 import { SearchContext } from "../context/SearchContext";
 import Spinner from "./Spinner";
 import { ThemeContext } from "styled-components";
 import SearchListTitles from "./SearchListTitles";
+import BtnOption from "./BtnOption";
 
 const Search = (props) => {
   const { query, isLoading, dispatch } = useContext(SearchContext);
@@ -15,25 +15,28 @@ const Search = (props) => {
   const [focus, setFocus] = useState(false);
 
   const theme = useContext(ThemeContext);
-  console.log(theme);
 
-  useEffect(() => {
-    query.length ? setFocus(true) : setFocus(false);
-  }, [query]);
+  const handleFocus = () => setFocus(true);
+  const handleBlur = () => setTimeout(() => setFocus(false), 200);
+  const handleSetVisibleOption = () => {
+    setVisibleOption((prevState) => !prevState);
+  };
 
   return (
     <StyledSearch>
       <div className="search-box">
-        <form>
+        <form onSubmit={(e) => e.preventDefault()}>
           <label>
             <input
-              className={`search-box__input ${focus ? "focus" : ""}`}
+              className={`search-box__input ${query.length ? "focus" : ""}`}
               type="text"
               name="search"
               value={query}
               onChange={(e) =>
                 dispatch({ type: "CHANGE_QUERY", query: e.target.value })
               }
+              onFocus={handleFocus}
+              onBlur={handleBlur}
             />
             <span>search</span>
 
@@ -52,15 +55,10 @@ const Search = (props) => {
             )}
           </label>
 
-          {focus && <SearchListTitles />}
+          {focus && <SearchListTitles query={query} focus={focus} />}
         </form>
 
-        <StyledBtnOption
-          onClick={() => setVisibleOption((prevState) => !prevState)}
-        >
-          <FontAwesomeIcon icon={faCog} />
-          <span>options</span>
-        </StyledBtnOption>
+        <BtnOption setVisibleOption={handleSetVisibleOption} />
 
         {visibleOption && <SearchOptions />}
       </div>
