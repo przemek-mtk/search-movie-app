@@ -106,6 +106,17 @@ const StyledSearch = styled.section`
     right: 10px;
   }
 
+  /*
+   style for SearchListTitles.js 
+   show list titles when user focus input and hide when onblur
+   */
+  .search-box:focus-within form label + div {
+    height: auto;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid ${props => props.theme.shadow}
+  }
+
 `;
 
 export default StyledSearch;

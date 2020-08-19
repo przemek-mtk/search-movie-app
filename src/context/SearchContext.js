@@ -13,7 +13,7 @@ const SearchContextProvider = (props) => {
     mediaType: "multi",
     isError: false,
     isLoading: false,
-    searchData: null,
+    searchData: [],
   });
 
   useEffect(() => {

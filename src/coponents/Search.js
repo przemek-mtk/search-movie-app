@@ -7,6 +7,7 @@ import StyledBtnOption from "./styles/StyledBtnOption";
 import { SearchContext } from "../context/SearchContext";
 import Spinner from "./Spinner";
 import { ThemeContext } from "styled-components";
+import SearchListTitles from "./SearchListTitles";
 
 const Search = (props) => {
   const { query, isLoading, dispatch } = useContext(SearchContext);
@@ -14,7 +15,7 @@ const Search = (props) => {
   const [focus, setFocus] = useState(false);
 
   const theme = useContext(ThemeContext);
-  console.log(theme)
+  console.log(theme);
 
   useEffect(() => {
     query.length ? setFocus(true) : setFocus(false);
@@ -38,7 +39,11 @@ const Search = (props) => {
 
             {isLoading ? (
               <div className="search-box__spinner">
-                <Spinner side={24} color={theme.primarySpinner} bg={theme.surfaceSpinner} />
+                <Spinner
+                  side={24}
+                  color={theme.primarySpinner}
+                  bg={theme.surfaceSpinner}
+                />
               </div>
             ) : (
               <div className="search-box__icon">
@@ -46,6 +51,8 @@ const Search = (props) => {
               </div>
             )}
           </label>
+
+          {focus && <SearchListTitles />}
         </form>
 
         <StyledBtnOption
