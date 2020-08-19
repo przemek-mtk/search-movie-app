@@ -100,6 +100,12 @@ const StyledSearch = styled.section`
     color: ${props => props.theme.onsurface};
   }
 
+  .search-box__spinner {
+    position: absolute; 
+    top: 14px;
+    right: 10px;
+  }
+
 `;
 
 export default StyledSearch;

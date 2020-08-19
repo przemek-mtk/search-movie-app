@@ -5,11 +5,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SearchOptions from "./SearchOptions";
 import StyledBtnOption from "./styles/StyledBtnOption";
 import { SearchContext } from "../context/SearchContext";
+import Spinner from "./Spinner";
+import { ThemeContext } from "styled-components";
 
 const Search = (props) => {
-  const { query, dispatch } = useContext(SearchContext);
+  const { query, isLoading, dispatch } = useContext(SearchContext);
   const [visibleOption, setVisibleOption] = useState(false);
   const [focus, setFocus] = useState(false);
+
+  const theme = useContext(ThemeContext);
+  console.log(theme)
 
   useEffect(() => {
     query.length ? setFocus(true) : setFocus(false);
@@ -30,9 +35,16 @@ const Search = (props) => {
               }
             />
             <span>search</span>
-            <div className="search-box__icon">
-              <FontAwesomeIcon icon={faSearch} />
-            </div>
+
+            {isLoading ? (
+              <div className="search-box__spinner">
+                <Spinner side={24} color={theme.primarySpinner} bg={theme.surfaceSpinner} />
+              </div>
+            ) : (
+              <div className="search-box__icon">
+                <FontAwesomeIcon icon={faSearch} />
+              </div>
+            )}
           </label>
         </form>
 

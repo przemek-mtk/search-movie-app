@@ -1,44 +1,40 @@
 import React, { createContext, useReducer, useEffect } from "react";
 import PropTypes from "prop-types";
 import { searchReducer } from "../reducer/searchReducer";
+import axios from "axios";
+
+const API_KEY = process.env.REACT_APP_MOVIE_SEARCH_API_KEY;
 
 export const SearchContext = createContext();
 
 const SearchContextProvider = (props) => {
-  const [search, dispatch] = useReducer(searchReducer, {query: "", mediaType: "multi", isError: false, isLoading: false, searchData: null });
-  // const [query, setQuery] = useState("");
-  // const [mediaType, setMediaType] = useState("all");
-
-  // const [searchData, setSearchData] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false);
-  // const [isError, setIsError] = useState(false);
-
-  // const changeQuery = (e) => {
-  //   setQuery(e.target.value);
-  // };
-
-  // const changeMediaType = (e) => {
-  //   setMediaType(e.target.value);
-  // };
+  const [search, dispatch] = useReducer(searchReducer, {
+    query: "",
+    mediaType: "multi",
+    isError: false,
+    isLoading: false,
+    searchData: null,
+  });
 
   useEffect(() => {
-    // setIsLoading(true);
-    dispatch({ type: "LOAD_DATA" });
-    // setIsError(false);
+    const { query, mediaType } = search;
+    
+    const fetch = async () => {
+      dispatch({ type: "LOAD_DATA" });
+      try {
+        const response = await axios.get(
+          `https://api.themoviedb.org/3/search/${mediaType}?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
+        );
+        const data = await response.data.results;
+        dispatch({ type: "SUCCES_DATA", data });
+      } catch (e) {
+        dispatch({ type: "ERROR_DATA" });
+      }
+    };
 
-    //wysyła zapytanie o tutaj
-
-    // odbiór zapytania
-    try {
-      //poprawny odbiór zapytania
-      // setSearchData("dane z zapytania");
-      dispatch({ type: "SUCCES_DATA", data: "odpowiedź z zapytania" });
-    } catch (e) {
-      // setIsError(true);
-      dispatch({ type: "ERROR_DATA" });
+    if (query.length > 0) {
+      fetch();
     }
-
-    // setIsLoading(false);
   }, [search.query]);
 
   return (
@@ -49,7 +45,7 @@ const SearchContextProvider = (props) => {
 };
 
 SearchContextProvider.propTypes = {
-  children: PropTypes.element.isRequired
-}
+  children: PropTypes.element.isRequired,
+};
 
 export default SearchContextProvider;
