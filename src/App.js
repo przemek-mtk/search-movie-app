@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import GloabalStyle from "./coponents/styles/GlobalStyle";
-import { BrowserRouter, Switch, Router } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { themeLight, themeDark } from "./helpers/theme";
 import Navbar from "./coponents/navbar/Navbar";
 import Search from "./coponents/search/Search";
+import Saved from "./coponents/saved/Saved"
 import SearchContextProvider from "./context/SearchContext";
 import { NightmodeContext } from "./context/NightmodeContext";
 
@@ -18,9 +19,12 @@ function App() {
           <>
             <Navbar />
 
-            <GloabalStyle />
+              <Switch>
+                <Route exact path="/" component={Search} />
+                <Route path="/saved" component={Saved} />
+              </Switch>
 
-            <Search />
+            <GloabalStyle />
           </>
         </SearchContextProvider>
       </ThemeProvider>

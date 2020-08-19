@@ -1,10 +1,7 @@
 import React, { useContext, useRef } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import {
-  faMoon, //do przeniesienia
-  faBookmark, //do przeniesienia
-} from "@fortawesome/free-solid-svg-icons";
+import { faMoon, faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import StyledUserOptions from "./styles/StyledUserOptions";
 import { useOutsideClick } from "../../hooks/useOutsideClick";
@@ -22,12 +19,21 @@ const UserOptions = ({ setOptionVisible }) => {
         <FontAwesomeIcon icon={faMoon} />
         <span>nightmode</span>
         <label>
-          <input type="checkbox" name="nightmode" onChange={changeTheme} checked={nightmode} />
+          <input
+            type="checkbox"
+            name="nightmode"
+            onChange={changeTheme}
+            checked={nightmode}
+          />
           <span className="switch"></span>
         </label>
       </button>
 
-      <Link to="/saved" className="options__element">
+      <Link
+        to="/saved/movie"
+        className="options__element"
+        onClick={() => setOptionVisible(false)}
+      >
         <FontAwesomeIcon icon={faBookmark} />
         <span>saved</span>
       </Link>

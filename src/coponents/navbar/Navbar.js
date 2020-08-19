@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { StyledList, StyledNavbar } from "./styles/StyledNavbar";
 import UserOptions from "./UserOptions";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [optionVisible, setOptionVisible] = useState(false);
 
   return (

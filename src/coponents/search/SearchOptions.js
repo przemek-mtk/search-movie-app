@@ -2,7 +2,7 @@ import React from "react";
 import StyledSearchOptions from "./styles/StyledSearchOptions";
 import SearchOptionRadio from "./SearchOptionRadio";
 
-const SearchOptions = () => {
+const SearchOptions = (props) => {
   return (
     <StyledSearchOptions>
       <h2>What are you looking for?</h2>
