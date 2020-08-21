@@ -19,13 +19,13 @@ const SearchContextProvider = (props) => {
   useEffect(() => {
     const { query, mediaType } = search;
 
-    const fetch = async () => {
+    const fetchData = async () => {
       dispatch({ type: "LOAD_DATA" });
       try {
         const response = await axios.get(
           `https://api.themoviedb.org/3/search/${mediaType}?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
         );
-        const data = await response.data.results;
+        const data = response.data.results;
         dispatch({ type: "SUCCES_DATA", data });
       } catch (e) {
         dispatch({ type: "ERROR_DATA" });
@@ -33,7 +33,7 @@ const SearchContextProvider = (props) => {
     };
 
     if (query.length !== 0) {
-      fetch();
+      fetchData();
     } else {
       dispatch({ type: "EMPTY_QUERY" });
     }
