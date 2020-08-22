@@ -5,6 +5,7 @@ import { CategoryContext } from "../../../context/CategoryContext";
 import { ConfigContext } from "../../../context/ConfigContext";
 import AboutMovie from "../AboutMovie";
 import Description from "../Description";
+import DetailedInfo from "../DetailedInfo";
 
 const Movie = (props) => {
   const { category, id } = useParams();
@@ -20,10 +21,10 @@ const Movie = (props) => {
   return (
     <div>
       {`/movie/${id}`}
-     <TrailerPoster posterSize={backdrop_sizes[1]} filePath={backdrop_path} />
-     <AboutMovie title={title} date={release_date} runtime={runtime} genres={genres} />
-     <Description posterSize={poster_sizes[0]} posterPatrh={poster_path}  overview={overview}/>
-
+      <TrailerPoster posterSize={backdrop_sizes[1]} filePath={backdrop_path} />
+      <AboutMovie title={title} date={release_date} runtime={runtime} genres={genres} />
+      <Description posterSize={poster_sizes[0]} posterPatrh={poster_path}  overview={overview}/>
+      <DetailedInfo />
     </div>
   );
 };

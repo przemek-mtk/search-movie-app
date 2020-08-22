@@ -5,6 +5,7 @@ const StyledPoster = styled.div`
   max-width: 700px;
   height: auto;
   position: relative;
+  background: ${props => props.theme.background};
   cursor: pointer;
 
   img {

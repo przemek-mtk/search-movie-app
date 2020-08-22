@@ -5,6 +5,8 @@ const StyledDescription = styled.div`
   font-size: 14px;
   line-height: 1.5em;
   padding: 15px 10px;
+  color: ${props => props.theme.onbackground};
+  background: ${props => props.theme.background};
 
   .movie-desc {
     flex: 2;
