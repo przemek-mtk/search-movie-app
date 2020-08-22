@@ -42,6 +42,7 @@ const Cast = ({ cast, profileSizes }) => {
             />
           ) : (
             <button
+              className="show-more"
               onClick={() => setCountVisibleCast((prev) => prev + 6)}
               disabled={countVisibleCast >= cast.length - 1}
             >

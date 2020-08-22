@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-const StyledCast = styled.div`
+const StyledReviews = styled.div`
   padding: 10px;
   color: ${props => props.theme.onbackground};
   background: ${props => props.theme.background};
@@ -10,18 +10,7 @@ const StyledCast = styled.div`
     font-size: 20px;
   }
 
-  .cast-list{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .cast-load {
-    width: 100%;
-    text-align: center;
-  }
 
 `;
 
-export default StyledCast;
+export default StyledReviews;

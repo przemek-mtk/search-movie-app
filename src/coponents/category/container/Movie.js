@@ -8,6 +8,7 @@ import Description from "../Description";
 import DetailedInfo from "../DetailedInfo";
 import Videos from "../Videos";
 import Cast from "../Cast";
+import Reviews from "../Reviews";
 
 const Movie = (props) => {
   const { category, id } = useParams();
@@ -15,9 +16,10 @@ const Movie = (props) => {
   const { data } = useContext(CategoryContext);
   const { config } = useContext(ConfigContext);
   const { backdrop_sizes, poster_sizes, profile_sizes, still_sizes } = config;
-  const {backdrop_path, poster_path, title, release_date, runtime, genres,overview, videos, credits } = data;
+  const {backdrop_path, poster_path, title, release_date, runtime, genres,overview, videos, credits, reviews } = data;
   const trailers = videos.results.filter(video => video.type === "Trailer");
   const cast = credits.cast;
+
 
   console.log(data);
   console.log(config);
@@ -31,6 +33,7 @@ const Movie = (props) => {
       <DetailedInfo />
       <Videos videos={trailers} />
       <Cast cast={cast} profileSizes={poster_sizes[0]} />
+      <Reviews reviews={reviews.results} />
     </div>
   );
 };
