@@ -11,16 +11,18 @@ export const CategoryContext = createContext();
 const CategoryContextProvider = ({ location, history, match, children }) => {
   const { category, id } = useParams();
   const [data, dispatch] = useReducer(categoryReducer, null, () => {
-    const localSorage = window.localStorage.getItem(`${category}-${id}`);
-    return localSorage ? JSON.parse(localSorage) : null;
+    const savedData = window.localStorage.getItem(`${category}-${id}`);
+    return savedData
+      ? { isLoading: false, isError: false, data: JSON.parse(savedData) }
+      : { isLoading: false, isError: false, data: null };
   });
 
   useEffect(() => {
-    if (data === null) {
+    if (data.data === null) {
       const appendToResponse =
         category === "person"
           ? "combined_credits"
-          : "videos%2Ccredits%2Creviews";
+          : "videos%2Ccredits%2Creviews%2Cimages&include_image_language=en%2Cnull";
 
       const fetchData = async () => {
         dispatch({ type: "LOAD_DATA" });
@@ -29,6 +31,9 @@ const CategoryContextProvider = ({ location, history, match, children }) => {
             `https://api.themoviedb.org/3/${category}/${id}?api_key=${API_KEY}&language=en-US&append_to_response=${appendToResponse}`
           );
           const data = response.data;
+          const jsonData = JSON.stringify(data);
+
+          window.localStorage.setItem(`${category}-${id}`, jsonData);
           dispatch({ type: "SUCCES_DATA", data });
         } catch (e) {
           //jakiś tam error
@@ -41,7 +46,9 @@ const CategoryContextProvider = ({ location, history, match, children }) => {
   }, [location.pathname, match.params]);
 
   return (
-    <CategoryContext.Provider value={{...data}}>{children}</CategoryContext.Provider>
+    <CategoryContext.Provider value={{ ...data }}>
+      {children}
+    </CategoryContext.Provider>
   );
 };
 

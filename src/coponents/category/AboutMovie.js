@@ -7,10 +7,17 @@ const AboutMovie = ({ title, date, runtime, genres }) => {
 
   return (
     <StyledAboutMovie>
+      <div>
+
       <h2 className="movie-title">
         {title}
         <span>{` (${year})`}</span>
       </h2>
+
+
+      <i class="far fa-bookmark"></i>
+      <i class="fa fa-bookmark"></i>
+      </div>
 
       <p className="movie-infobar">
         <span className="movie-infobar__runtime">{`${runtime}min`}</span>

@@ -5,6 +5,12 @@ const StyledCastMember = styled.div`
   text-align: center;
   padding-bottom: 20px;
 
+  a {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
   .cast-member__info {
     font-size: 12px;
   }
@@ -16,6 +22,7 @@ const StyledCastMember = styled.div`
   .cast-member__info p:first-of-type {
     font-size: 14px;
     font-family: "Roboto Condensed", sans-serif;
+    color: ${(props) => props.theme.onbackground};
   }
 
   .cast-member__info p:last-of-type {

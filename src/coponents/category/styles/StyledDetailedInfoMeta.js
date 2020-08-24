@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 const StyledDetailedInfoMeta = styled.li`
-  padding-bottom: 4px;
+  padding: 0 10px 4px;
 
   .meta_label{
     text-transform: capitalize;

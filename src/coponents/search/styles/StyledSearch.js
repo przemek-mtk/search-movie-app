@@ -43,6 +43,7 @@ const StyledSearch = styled.section`
     background: transparent;
     font-size: 14px;
     font-weight: 400;
+    color: ${props => props.theme.onsurface};
     border: 1px solid ${props => props.theme.onsurface};
     border-radius: 4px;
     outline: none;

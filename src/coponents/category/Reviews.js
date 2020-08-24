@@ -5,13 +5,15 @@ import PropTypes from "prop-types";
 
 const Reviews = ({ reviews }) => {
   return (
-    <StyledReviews>
-      <h2>Reviews</h2>
+    !!reviews.length && (
+      <StyledReviews>
+        <h2>Reviews</h2>
 
-      {reviews.map((review) => (
-        <ReviewPost key={review.id} review={review} />
-      ))}
-    </StyledReviews>
+        {reviews.map((review) => (
+          <ReviewPost key={review.id} review={review} />
+        ))}
+      </StyledReviews>
+    )
   );
 };
 

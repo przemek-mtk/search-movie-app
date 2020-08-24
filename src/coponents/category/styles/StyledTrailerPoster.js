@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const StyledPoster = styled.div`
   width: 100%;
   max-width: 700px;
   height: auto;
   position: relative;
-  background: ${props => props.theme.background};
+  /* background: ${(props) => props.theme.background}; */
   cursor: pointer;
 
   img {
@@ -23,13 +23,12 @@ const StyledPoster = styled.div`
     border: 3px solid #fff;
     border-radius: 50%;
     text-align: center;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.4);
     box-shadow: 0 0 3px #000;
 
     display: flex;
     justify-content: center;
     align-items: center;
-
   }
 
   .play-icon {
@@ -38,6 +37,28 @@ const StyledPoster = styled.div`
     font-size: 24px;
     color: #fff;
   }
+
+  ${(props) =>
+    props.thumbnails &&
+    css`
+      margin: 5px;
+      display: inline-block;
+      width: 210px;
+
+      img {
+        border: 2px solid ${(props) => props.theme.primary};
+      }
+
+      .play {
+        width: 32px;
+        height: 32px;
+      }
+
+      .play-icon {
+        margin-left: 2px;
+        font-size: 14px;
+      }
+    `}
 `;
 
 export default StyledPoster;

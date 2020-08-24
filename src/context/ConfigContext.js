@@ -9,25 +9,30 @@ export const ConfigContext = createContext();
 
 const ConfigContextProvider = (props) => {
   const [config, dispatch] = useReducer(configReducer, null, () => {
-    const localStorage = window.localStorage.getItem("img-config");
-    return localStorage ? JSON.parse(localStorage) : null;
+    const savedData = window.localStorage.getItem("img-config");
+    return savedData
+      ? { isLoading: false, isError: false, config: JSON.parse(savedData) }
+      : { isLoading: false, isError: false, config: null };
   });
 
   useEffect(() => {
-    const fetchData = async () => {
-      dispatch({ type: "LOAD_DATA" });
-      try {
-        const response = await axios.get(
-          ` https://api.themoviedb.org/3/configuration?api_key=${API_KEY}`
-        );
-        const data = response.data.images;
-        dispatch({ type: "SUCCES_DATA", data });
-      } catch (e) {
-        dispatch({ type: "ERROR_DATA" });
-      }
-    };
+    if (config.config === null) {
+      const fetchData = async () => {
+        dispatch({ type: "LOAD_DATA" });
+        try {
+          const response = await axios.get(
+            ` https://api.themoviedb.org/3/configuration?api_key=${API_KEY}`
+          );
+          const data = response.data.images;
+          const jsonData = JSON.stringify(data);
 
-    if (config === null) {
+          window.localStorage.setItem("img-config", jsonData);
+          dispatch({ type: "SUCCES_DATA", data });
+        } catch (e) {
+          dispatch({ type: "ERROR_DATA" });
+        }
+      };
+
       fetchData();
     }
   }, []);

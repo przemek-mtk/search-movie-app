@@ -4,6 +4,10 @@ const StyledDetailedInfoVote = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  background: ${props => props.theme.surface};
+  border-top: 1px solid ${props => props.theme.shadow};
+  border-bottom: 1px solid ${props => props.theme.shadow};
+  padding: 10px;
 
   .vote__icon {
     width: 32px;

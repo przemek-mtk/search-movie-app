@@ -2,6 +2,7 @@ export const themeLight = {
   background: "#FFFFFF",
   surface: "#FFFFFF",
   surfaceSpinner: "255,255,255",
+  surfaceGradient: "linear-gradient(0deg, rgba(255,255,255,0.9415967070421919) 10%, rgba(255,255,255,0) 65%)",
   // primary: "#062C4D" lub "#063c65" lub "#344955" lub "#3700B3"
   primary: "#062C4D",
   primarySpinner: "6,44,77",
@@ -22,6 +23,7 @@ export const themeDark = {
   // surface: "#1E1E1E" lub "#373740",
   surface: "#1E1E1E",
   surfaceSpinner: "30,30,30",
+  surfaceGradient: "linear-gradient(0deg, rgba(30,30,30,0.9415967070421919) 10%, rgba(255,255,255,0) 65%)",
   // primary: "#BB86FC" (może bardziej ten) "#1473E6" lub "#1EB980",
   primary: "#BB86FC",
   primarySpinner: "187,134,252",

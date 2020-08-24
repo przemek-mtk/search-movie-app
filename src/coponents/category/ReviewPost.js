@@ -8,7 +8,7 @@ const ReviewPost = ({ review }) => {
   return (
     <StyledReviewPost>
       <h3 className="review-post__author">{review.author}</h3>
-      <p className={`review-post__content ${showAll ? "" : "collaps"}`}>
+      <p className={`review-post__content ${showAll ? "show" : ""}`}>
         {review.content}
       </p>
 

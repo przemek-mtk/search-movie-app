@@ -11,8 +11,10 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     margin: 0;
     padding: 0;
+    font-size: 14px;
     font-family: 'Open Sans', sans-serif;
     color: ${(props) => props.theme.onbackground};
+    background: ${props => props.theme.background};
   }
 
 

@@ -13,16 +13,18 @@ const Cast = ({ cast, profileSizes }) => {
   const theme = useContext(ThemeContext);
 
   useEffect(() => {
-    if (countVisibleCast < cast.length) {
-      setLoadingCast(true);
-      setTimeout(() => {
-        setVisibleCast(
-          cast.slice(0, Math.min(countVisibleCast, cast.length - 1))
-        );
-        setLoadingCast(false);
-      }, 500);
-    }
+    setLoadingCast(true);
+    setTimeout(() => {
+      setVisibleCast(
+        cast.slice(0, Math.min(countVisibleCast, cast.length - 1))
+      );
+      setLoadingCast(false);
+    }, 500);
   }, [cast, countVisibleCast]);
+
+  const handleLoadCast = () => {
+    setCountVisibleCast((prev) => prev + 9);
+  };
 
   return (
     <StyledCast>
@@ -30,7 +32,13 @@ const Cast = ({ cast, profileSizes }) => {
 
       <div className="cast-list">
         {visibleCast.map((person) => {
-          return <CastMember key={person.credit_id} person={person} profileSizes={profileSizes} />;
+          return (
+            <CastMember
+              key={person.credit_id}
+              person={person}
+              profileSizes={profileSizes}
+            />
+          );
         })}
 
         <div className="cast-load">
@@ -43,7 +51,7 @@ const Cast = ({ cast, profileSizes }) => {
           ) : (
             <button
               className="show-more"
-              onClick={() => setCountVisibleCast((prev) => prev + 6)}
+              onClick={handleLoadCast}
               disabled={countVisibleCast >= cast.length - 1}
             >
               see more

@@ -23,10 +23,10 @@ const Category = (props) => {
 export default Category;
 
 
-
 const CategoryContent = (props) => {
   const config = useContext(ConfigContext);
   const category = useContext(CategoryContext);
+
 
   return config.isLoading || category.isLoading || !config.config  || !category.data ? (
     <div>Loading...</div>
