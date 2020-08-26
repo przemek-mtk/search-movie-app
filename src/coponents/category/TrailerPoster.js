@@ -8,7 +8,7 @@ const TrailerPoster = ({ posterSize, filePath, isVideo, ...rest }) => {
 
   return (
     <StyledTrailerPoster {...rest}>
-      <img src={config.base_url + posterSize + filePath} alt="Trailer poster" />
+      <img src={config.secure_base_url + posterSize + filePath} alt="Trailer poster" />
       {isVideo && (
         <div className="play">
           <i className="fa fa-play play-icon"></i>

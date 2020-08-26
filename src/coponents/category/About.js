@@ -7,8 +7,9 @@ import { faBookmark as farBookmark } from "@fortawesome/fontawesome-free-regular
 
 import PropTypes from "prop-types";
 
-const About = ({ title, date, runtime, genres }) => {
+const About = ({ title, date, lastAirData, runtime, genres }) => {
   const year = new Date(date).getFullYear();
+  const lastAirYear = new Date(lastAirData).getFullYear() || null; //only for tv
   const { data, isSaved, dispatch, match } = useContext(CategoryContext);
   const { category } = match.params;
 
@@ -32,7 +33,11 @@ const About = ({ title, date, runtime, genres }) => {
       <div className="movie-header">
         <h2 className="title">
           {title}
-          <span>{` (${year})`}</span>
+          {lastAirYear ? 
+        <span>{` (${year}-${lastAirYear})`}</span>
+        :
+        <span>{` (${year})`}</span>
+        }
         </h2>
         <div className="save" onClick={toggleDataInLocalStorage}>
           <FontAwesomeIcon icon={isSaved ? fasBookmark : farBookmark} />
@@ -57,6 +62,7 @@ const About = ({ title, date, runtime, genres }) => {
 About.propTypes = {
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
+  lastAirData: PropTypes.string,
   runtime: PropTypes.number.isRequired,
   genres: PropTypes.array.isRequired,
 };

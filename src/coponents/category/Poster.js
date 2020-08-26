@@ -8,7 +8,7 @@ const Poster = ({ posterSize, posterPatrh }) => {
 
   return (
     <StyledPoster>
-      <img src={config.base_url + posterSize + posterPatrh} alt="Poster" />
+      <img src={config.secure_base_url + posterSize + posterPatrh} alt="Poster" />
     </StyledPoster>
   );
 };
