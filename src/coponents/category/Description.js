@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import Poster from "./Poster";
 import StyledDescription from "./styles/StyledDescription";
 
 const Description = ({ overview, ...rest }) => {
+  const [showAll, setShowAll] = useState(false);
+
   return (
     <StyledDescription>
       <Poster {...rest} />
-      <div className="movie-desc">
+      <div className={`movie-desc ${showAll ? "show" : ""}`}>
         <p>{overview}</p>
+        <div className="open-box" onClick={() => setShowAll((prev) => !prev)}>
+          <i class="fa fa-chevron-down"></i>
+        </div>
       </div>
     </StyledDescription>
   );

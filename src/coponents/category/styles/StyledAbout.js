@@ -32,6 +32,7 @@ const StyledAboutMovie = styled.div`
 
   .save svg {
     cursor: pointer;
+    vertical-align: top;
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
     -khtml-user-select: none; /* Konqueror HTML */
@@ -58,6 +59,17 @@ const StyledAboutMovie = styled.div`
     top: -1px;
     right: -15px;
   }
+
+
+  .person-infobar {
+    text-transform: capitalize;
+    color: ${props => props.theme.onsurface};
+  }
+
+  .person-infobar p {
+    margin: 0;
+  }
+
 `;
 
 export default StyledAboutMovie;

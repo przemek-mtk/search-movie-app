@@ -8,6 +8,7 @@ import DetailedInfo from "../DetailedInfo";
 import Videos from "../Videos";
 import Cast from "../Cast";
 import Reviews from "../Reviews";
+import AboutInfobar from "../AboutInfobar";
 
 const Tv = (props) => {
   const { data } = useContext(CategoryContext);
@@ -41,9 +42,8 @@ const Tv = (props) => {
       <About
         title={name}
         date={first_air_date}
-        lastAirData={last_air_date}
-        runtime={episode_run_time[0]}
-        genres={genres}
+        lastData={last_air_date}
+        infobar={<AboutInfobar runtime={episode_run_time[0]} genres={genres} />}
       />
       <Description
         posterSize={poster_sizes[0]}

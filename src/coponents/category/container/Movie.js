@@ -8,6 +8,7 @@ import DetailedInfo from "../DetailedInfo";
 import Videos from "../Videos";
 import Cast from "../Cast";
 import Reviews from "../Reviews";
+import AboutInfobar from "../AboutInfobar";
 
 const Movie = (props) => {
   const { data } = useContext(CategoryContext);
@@ -40,8 +41,7 @@ const Movie = (props) => {
       <About
         title={title}
         date={release_date}
-        runtime={runtime}
-        genres={genres}
+        infobar={<AboutInfobar runtime={runtime} genres={genres} />}
       />
       <Description
         posterSize={poster_sizes[0]}
