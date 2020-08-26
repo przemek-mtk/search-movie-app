@@ -10,23 +10,11 @@ import ConfigContextProvider, {
   ConfigContext,
 } from "../../../context/ConfigContext";
 
-const Category = (props) => {
-  return (
-    <ConfigContextProvider>
-      <CategoryContextProvider {...props}>
-        <CategoryContent />
-      </CategoryContextProvider>
-    </ConfigContextProvider>
-  );
-};
-
-export default Category;
 
 
 const CategoryContent = (props) => {
   const config = useContext(ConfigContext);
   const category = useContext(CategoryContext);
-
 
   return config.isLoading || category.isLoading || !config.config  || !category.data ? (
     <div>Loading...</div>
@@ -41,4 +29,20 @@ const CategoryContent = (props) => {
     </div>
   );
 };
+
+
+
+const Category = (props) => {
+  return (
+    <ConfigContextProvider>
+      <CategoryContextProvider {...props}>
+        <CategoryContent />
+      </CategoryContextProvider>
+    </ConfigContextProvider>
+  );
+};
+
+export default Category;
+
+
 

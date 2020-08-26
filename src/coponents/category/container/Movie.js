@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
-import { useParams } from "react-router-dom";
 import TrailerPoster from "../TrailerPoster";
 import { CategoryContext } from "../../../context/CategoryContext";
 import { ConfigContext } from "../../../context/ConfigContext";
-import AboutMovie from "../AboutMovie";
+import About from "../About";
 import Description from "../Description";
 import DetailedInfo from "../DetailedInfo";
 import Videos from "../Videos";
@@ -11,8 +10,6 @@ import Cast from "../Cast";
 import Reviews from "../Reviews";
 
 const Movie = (props) => {
-  const { category, id } = useParams();
-
   const { data } = useContext(CategoryContext);
   const { config } = useContext(ConfigContext);
   const { backdrop_sizes, poster_sizes, profile_sizes, still_sizes } = config;
@@ -26,7 +23,7 @@ const Movie = (props) => {
   return (
     <div>
       <TrailerPoster posterSize={backdrop_sizes[1]} filePath={backdrop_path} isVideo={!!trailers.length} />
-      <AboutMovie title={title} date={release_date} runtime={runtime} genres={genres} />
+      <About title={title} date={release_date} runtime={runtime} genres={genres} />
       <Description posterSize={poster_sizes[0]} posterPatrh={poster_path}  overview={overview}/>
       <DetailedInfo />
       <Videos videos={trailers} images={images}  posterSize={backdrop_sizes[0]} />

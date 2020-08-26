@@ -10,15 +10,22 @@ export const CategoryContext = createContext();
 
 const CategoryContextProvider = ({ location, history, match, children }) => {
   const { category, id } = useParams();
-  const [data, dispatch] = useReducer(categoryReducer, null, () => {
-    const savedData = window.localStorage.getItem(`${category}-${id}`);
-    return savedData
-      ? { isLoading: false, isError: false, data: JSON.parse(savedData) }
-      : { isLoading: false, isError: false, data: null };
+  const [resources, dispatch] = useReducer(categoryReducer, null, () => {
+    const savedData = JSON.parse(window.localStorage.getItem(`${category}-${id}`));
+    return {
+      isLoading: false,
+      isError: false,
+      isSaved: savedData ? savedData.isSaved : false,
+      data: savedData ? savedData.data : null,
+    };
   });
 
   useEffect(() => {
-    if (data.data === null) {
+    window.localStorage.setItem(`${category}-${id}`, JSON.stringify(resources));
+  }, [resources]);
+
+  useEffect(() => {
+    if (resources.data === null) {
       const appendToResponse =
         category === "person"
           ? "combined_credits"
@@ -31,9 +38,6 @@ const CategoryContextProvider = ({ location, history, match, children }) => {
             `https://api.themoviedb.org/3/${category}/${id}?api_key=${API_KEY}&language=en-US&append_to_response=${appendToResponse}`
           );
           const data = response.data;
-          const jsonData = JSON.stringify(data);
-
-          window.localStorage.setItem(`${category}-${id}`, jsonData);
           dispatch({ type: "SUCCES_DATA", data });
         } catch (e) {
           //jakiś tam error
@@ -43,10 +47,10 @@ const CategoryContextProvider = ({ location, history, match, children }) => {
 
       fetchData();
     }
-  }, [location.pathname, match.params]);
+  }, [location.pathname, match.params, category, id]);
 
   return (
-    <CategoryContext.Provider value={{ ...data }}>
+    <CategoryContext.Provider value={{ ...resources, dispatch, match }}>
       {children}
     </CategoryContext.Provider>
   );
