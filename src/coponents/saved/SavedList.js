@@ -1,20 +1,19 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, Switch, Route, useParams } from "react-router-dom";
-import StyledSavedList from "./styles/StyledSavedList"
-import Poster from "../category/Poster";
-import { ConfigContext } from "../../context/ConfigContext";
-import Title from "../Title";
-import InfoVote from "../InfoVote"
-import UnsaveBtn from "./UnsaveBtn";
+import StyledSavedList from "./styles/StyledSavedList";
+import SavedItem from "./SavedItem";
 
 const Saved = (props) => {
   const { type } = useParams();
-  const { config } = useContext(ConfigContext);
-  const { poster_sizes } = config;
+
   const [savedList, setSavedList] = useState(() => {
     const localData = window.localStorage.getItem(type);
     return localData ? JSON.parse(localData) : [];
   });
+
+  useEffect(() => {
+    window.localStorage.setItem(type, JSON.stringify(savedList));
+  }, [savedList]);
 
   useEffect(() => {
     let localData = window.localStorage.getItem(type);
@@ -22,29 +21,30 @@ const Saved = (props) => {
     setSavedList(data);
   }, [type]);
 
+  const removeItemFromSavedList = (id) => {
+    const index = savedList.findIndex((item) => item.id === id);
+    let list = [...savedList];
+    list.splice(index, 1);
+    setSavedList(list);
+
+    let savedData = JSON.parse(window.localStorage.getItem(`${type}-${id}`));
+    savedData.isSaved = false;
+    window.localStorage.setItem(`${type}-${id}`, JSON.stringify(savedData));
+  };
+
   return (
     <StyledSavedList>
       {savedList.length ? (
-        savedList.map((item) => {
-          console.log(item);
-
-          return (
-            <div className="saved-list__item">
-              <Poster
-                posterSize={poster_sizes[0]}
-                posterPatrh={item.poster_path || item.profile_path}
-              />
-              <div className="saved-list__describe">
-
-                <Title title={item.title || item.name} date={item.release_date || item.first_air_date || item.birthday} lastDate={item.last_air_date || item.deathday} saved/>
-                {type === "person" ? null : <InfoVote average={item.vote_average} count={item.vote_count} />}
-              </div>
-              <UnsaveBtn />
-            </div>
-          );
-        })
+        savedList.map((item) => (
+          <SavedItem
+            key={item.id}
+            item={item}
+            removeItem={removeItemFromSavedList}
+            type={type}
+          />
+        ))
       ) : (
-        <p>Nothig here</p>
+        <p className="empty">Nothig here</p>
       )}
     </StyledSavedList>
   );

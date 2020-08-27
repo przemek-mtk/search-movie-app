@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 14px;
     font-family: 'Open Sans', sans-serif;
     color: ${(props) => props.theme.onbackground};
-    background: ${props => props.theme.background};
+    background: ${(props) => props.theme.background};
   }
 
 
@@ -22,8 +22,8 @@ const GlobalStyle = createGlobalStyle`
   .show-more {
     outline: none;
     border: none;
-    background: ${props => props.theme.primary};
-    color: ${props => props.theme.onprimary};
+    background: ${(props) => props.theme.primary};
+    color: ${(props) => props.theme.onprimary};
     text-transform: capitalize;
     font-size: 14px;
     font-weight: 600;
@@ -33,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
 
   .show-more:hover,
   .show-more:focus {
-    box-shadow: 0 0 4px ${props => props.theme.primary};
+    box-shadow: 0 0 4px ${(props) => props.theme.primary};
   }
 
   .show-more:disabled {

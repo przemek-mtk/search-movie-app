@@ -1,8 +1,9 @@
 import React, { useState, useRef } from "react";
 import StyledUnsaveBtn from "./styles/StyledUnsaveBtn";
 import UnsaveOption from "./UnsaveOption";
+import PropTypes from "prop-types";
 
-const UnsaveBtn = (props) => {
+const UnsaveBtn = ({ ...rest }) => {
   const [showOption, setShowOption] = useState(false);
 
   return (
@@ -11,9 +12,14 @@ const UnsaveBtn = (props) => {
         <i class="fas fa-ellipsis-v"></i>
       </button>
 
-      {showOption && <UnsaveOption setShowOption={setShowOption} />}
+      {showOption && <UnsaveOption setShowOption={setShowOption} {...rest} />}
     </StyledUnsaveBtn>
   );
+};
+
+UnsaveBtn.propTypes = {
+  id: PropTypes.number.isRequired,
+  removeItem: PropTypes.func.isRequired,
 };
 
 export default UnsaveBtn;

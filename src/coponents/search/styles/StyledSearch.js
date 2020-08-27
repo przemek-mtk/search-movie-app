@@ -16,7 +16,6 @@ const StyledSearch = styled.section`
   .search-box {
     width: 90%;
     max-width: 700px;
-    /*dla testu -- height*/
     min-height: 150px; 
     margin: 40px auto;
     padding: 10px 20px 0;
@@ -76,7 +75,7 @@ const StyledSearch = styled.section`
     color: ${props => props.theme.onsurface};
     text-transform: capitalize;
     background: ${props => props.theme.surface};
-    transition: 0.2s ease all;
+    transition: 0.2s ease top;
   }
 
   .search-box__input:focus + span {

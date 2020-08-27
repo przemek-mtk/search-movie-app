@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Poster from "./Poster";
+import Poster from "../Poster";
 import { Link } from "react-router-dom";
 import { ConfigContext } from "../../context/ConfigContext";
 import PropTypes from "prop-types";
@@ -11,7 +11,7 @@ const KnownForPoster = ({ movie }) => {
   return (
     <div className="movie-list__item">
       <Link to={`/${movie.media_type}/${movie.id}`}>
-        <Poster posterSize={poster_sizes[0]} posterPatrh={movie.poster_path} />
+        <Poster posterSize={poster_sizes[0]} posterPath={movie.poster_path} />
         <div className="movie-list__info">
           <p>{movie.title || movie.name}</p>
           <p>{movie.character || movie.job}</p>

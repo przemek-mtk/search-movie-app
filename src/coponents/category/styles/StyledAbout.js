@@ -12,7 +12,6 @@ const StyledAboutMovie = styled.div`
     align-items: flex-start;
   }
 
-  
   .save {
     color: ${(props) => props.theme.primary};
     font-size: 28px;
@@ -48,16 +47,14 @@ const StyledAboutMovie = styled.div`
     right: -15px;
   }
 
-
   .person-infobar {
     text-transform: capitalize;
-    color: ${props => props.theme.onsurface};
+    color: ${(props) => props.theme.onsurface};
   }
 
   .person-infobar p {
     margin: 0;
   }
-
 `;
 
 export default StyledAboutMovie;

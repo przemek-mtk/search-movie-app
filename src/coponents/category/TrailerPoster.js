@@ -7,14 +7,19 @@ const TrailerPoster = ({ posterSize, filePath, isVideo, ...rest }) => {
   const { config } = useContext(ConfigContext);
 
   return (
-    <StyledTrailerPoster {...rest}>
-      <img src={config.secure_base_url + posterSize + filePath} alt="Trailer poster" />
-      {isVideo && (
-        <div className="play">
-          <i className="fa fa-play play-icon"></i>
-        </div>
-      )}
-    </StyledTrailerPoster>
+    filePath && (
+      <StyledTrailerPoster {...rest}>
+        <img
+          src={config.secure_base_url + posterSize + filePath}
+          alt="Trailer poster"
+        />
+        {isVideo && (
+          <div className="play">
+            <i className="fa fa-play play-icon"></i>
+          </div>
+        )}
+      </StyledTrailerPoster>
+    )
   );
 };
 

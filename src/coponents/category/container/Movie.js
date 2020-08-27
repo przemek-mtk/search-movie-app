@@ -32,7 +32,7 @@ const Movie = (props) => {
   reviews = reviews.results.slice(0, 7);
 
   return (
-    <div>
+    <section>
       <TrailerPoster
         posterSize={backdrop_sizes[1]}
         filePath={backdrop_path}
@@ -45,7 +45,7 @@ const Movie = (props) => {
       />
       <Description
         posterSize={poster_sizes[0]}
-        posterPatrh={poster_path}
+        posterPath={poster_path}
         overview={overview}
       />
       <DetailedInfo />
@@ -56,7 +56,7 @@ const Movie = (props) => {
       />
       <Cast cast={cast} profileSizes={poster_sizes[0]} />
       <Reviews reviews={reviews} />
-    </div>
+    </section>
   );
 };
 

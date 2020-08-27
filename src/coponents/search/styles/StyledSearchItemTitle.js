@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const StyledSearchItemTitle = styled.li`
-  font-size: 14px;
   font-family: 'Roboto Condensed', sans-serif;
 
   a {

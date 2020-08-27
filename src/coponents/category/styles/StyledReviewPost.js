@@ -20,7 +20,6 @@ const StyledReviewPost = styled.div`
   }
 
   .review-post__content {
-    /* font-size: 14px; */
     line-height: 1.5em;
 
     max-height: 100px;

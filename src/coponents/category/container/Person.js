@@ -32,7 +32,7 @@ const Perosn = (props) => {
   const { cast, crew } = combined_credits;
 
   return (
-    <div>
+    <section>
       <About
         title={name}
         date={birthday}
@@ -41,13 +41,13 @@ const Perosn = (props) => {
       />
       <Description
         posterSize={poster_sizes[0]}
-        posterPatrh={profile_path}
+        posterPath={profile_path}
         overview={biography}
       />
 
       <KnownFor title="Cast" movies={cast} />
       <KnownFor title="Crew" movies={crew} />
-    </div>
+    </section>
   );
 };
 

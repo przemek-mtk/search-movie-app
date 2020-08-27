@@ -36,6 +36,7 @@ const StyledKnownFor = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    min-height: 16px;
   }
 
   .movie-list__info p:first-of-type {

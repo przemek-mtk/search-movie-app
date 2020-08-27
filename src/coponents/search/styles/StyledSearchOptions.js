@@ -4,7 +4,6 @@ const StyledSearchOptions = styled.div`
   width: 100%;
   padding-bottom: 25px;
   flex: 1 1 auto;
-  font-size: 14px;
   color: ${(props) => props.theme.onsurface};
   border-top: 1px solid ${(props) => props.theme.shadow};
 

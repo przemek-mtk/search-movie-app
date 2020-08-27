@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import StyledCastMember from "./styles/StyledCastMember";
-import Poster from "./Poster";
+import Poster from "../Poster";
 import { Link } from "react-router-dom";
 
 const CastMember = ({ person, profileSizes }) => {
   return (
     <StyledCastMember>
       <Link to={`/person/${person.id}`}>
-        <Poster posterSize={profileSizes} posterPatrh={person.profile_path} />
+        <Poster posterSize={profileSizes} posterPath={person.profile_path} />
         <div className="cast-member__info">
           <p>{person.name}</p>
           <p>{person.character}</p>

@@ -6,6 +6,7 @@ const StyledTitle = styled.h2`
   font-size: 24px;
   font-weight: 700;
   color: ${(props) => props.theme.onbackground};
+  
 
   span {
     font-size: 12px;

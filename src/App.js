@@ -9,6 +9,7 @@ import Saved from "./coponents/saved/Saved";
 import SearchContextProvider from "./context/SearchContext";
 import { NightmodeContext } from "./context/NightmodeContext";
 import Category from "./coponents/category/container/Category";
+import NotFound from "./coponents/NotFound";
 
 function App() {
   const { nightmode } = useContext(NightmodeContext);
@@ -24,6 +25,7 @@ function App() {
               <Route exact path="/" component={Search} />
               <Route path="/saved" component={Saved} />
               <Route path="/:category/:id" component={Category} />
+              <Route path="*" component={NotFound} />
             </Switch>
 
             <GloabalStyle />

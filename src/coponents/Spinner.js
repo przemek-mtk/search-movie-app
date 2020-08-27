@@ -46,7 +46,6 @@ const Spinner = (props) => {
     const animation = () => {
       animatinFrameId = requestAnimationFrame(animation);
       ctx.fillStyle = `rgba(${bg},0.02)`;
-      // console.log(side)
       ctx.fillRect(0, 0, side, side);
 
       update();
@@ -59,7 +58,7 @@ const Spinner = (props) => {
     };
   }, []);
 
-  return <canvas ref={canvas} width={props.side} height={props.side} {...props} />
+  return <canvas ref={canvas} width={`${props.side}px`} height={`${props.side}px`} {...props} />
 };
 
 export default Spinner;
