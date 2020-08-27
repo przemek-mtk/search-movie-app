@@ -12,19 +12,7 @@ const StyledAboutMovie = styled.div`
     align-items: flex-start;
   }
 
-  .title {
-    margin: 0;
-    font-family: "Roboto Condensed", sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    color: ${(props) => props.theme.onbackground};
-  }
-
-  .title span {
-    font-size: 12px;
-    font-weight: 400;
-  }
-
+  
   .save {
     color: ${(props) => props.theme.primary};
     font-size: 28px;

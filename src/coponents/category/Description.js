@@ -7,15 +7,17 @@ const Description = ({ overview, ...rest }) => {
   const [showAll, setShowAll] = useState(false);
 
   return (
-    <StyledDescription>
-      <Poster {...rest} />
-      <div className={`movie-desc ${showAll ? "show" : ""}`}>
-        <p>{overview}</p>
-        <div className="open-box" onClick={() => setShowAll((prev) => !prev)}>
-          <i class="fa fa-chevron-down"></i>
+    !!overview.length && (
+      <StyledDescription>
+        <Poster {...rest} />
+        <div className={`movie-desc ${showAll ? "show" : ""}`}>
+          <p>{overview}</p>
+          <div className="open-box" onClick={() => setShowAll((prev) => !prev)}>
+            <i className="fa fa-chevron-down"></i>
+          </div>
         </div>
-      </div>
-    </StyledDescription>
+      </StyledDescription>
+    )
   );
 };
 

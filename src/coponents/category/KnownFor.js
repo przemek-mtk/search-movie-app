@@ -1,35 +1,29 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import StyledKnownFor from "./styles/StyledKnownFor";
-import Poster from "./Poster";
+import KnownForPoster from "./KnownForPoster"
+import PropTypes from "prop-types";
 
-const KnownFor = ({ title, movies, posterSize }) => {
+const KnownFor = ({ title, movies }) => {
   return (
-    movies && (
+    !!movies.length && (
       <StyledKnownFor>
         <h2>{title}</h2>
 
         <div className="movies-list">
           {movies.map((movie) => {
             return (
-              <div className="movie-list__item">
-                <Link to={`${movie.media_type}/${movie.id}`}>
-                  <Poster
-                    posterSize={posterSize}
-                    posterPatrh={movie.poster_path}
-                  />
-                  <div className="movie-list__info">
-                    <p>{movie.title || movie.name}</p>
-                    <p>{movie.character || movie.job}</p>
-                  </div>
-                </Link>
-              </div>
+             <KnownForPoster key={movie.id} movie={movie}  />
             );
           })}
         </div>
       </StyledKnownFor>
     )
   );
+};
+
+KnownFor.propTypes = {
+  title: PropTypes.string.isRequired,
+  movies: PropTypes.array.isRequired
 };
 
 export default KnownFor;

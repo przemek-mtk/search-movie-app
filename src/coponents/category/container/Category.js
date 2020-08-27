@@ -16,6 +16,8 @@ const CategoryContent = (props) => {
   const config = useContext(ConfigContext);
   const category = useContext(CategoryContext);
 
+  console.log("Category", category);
+
   return config.isLoading || category.isLoading || !config.config  || !category.data ? (
     <div>Loading...</div>
   ) : (

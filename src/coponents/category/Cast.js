@@ -27,39 +27,41 @@ const Cast = ({ cast, profileSizes }) => {
   };
 
   return (
-    <StyledCast>
-      <h2>Cast</h2>
+    !!cast.length && (
+      <StyledCast>
+        <h2>Cast</h2>
 
-      <div className="cast-list">
-        {visibleCast.map((person) => {
-          return (
-            <CastMember
-              key={person.credit_id}
-              person={person}
-              profileSizes={profileSizes}
-            />
-          );
-        })}
+        <div className="cast-list">
+          {visibleCast.map((person) => {
+            return (
+              <CastMember
+                key={person.credit_id}
+                person={person}
+                profileSizes={profileSizes}
+              />
+            );
+          })}
 
-        <div className="cast-load">
-          {loadingCast ? (
-            <Spinner
-              side={40}
-              color={theme.primarySpinner}
-              bg={theme.surfaceSpinner}
-            />
-          ) : (
-            <button
-              className="show-more"
-              onClick={handleLoadCast}
-              disabled={countVisibleCast >= cast.length - 1}
-            >
-              see more
-            </button>
-          )}
+          <div className="cast-load">
+            {loadingCast ? (
+              <Spinner
+                side={40}
+                color={theme.primarySpinner}
+                bg={theme.surfaceSpinner}
+              />
+            ) : (
+              <button
+                className="show-more"
+                onClick={handleLoadCast}
+                disabled={countVisibleCast >= cast.length - 1}
+              >
+                see more
+              </button>
+            )}
+          </div>
         </div>
-      </div>
-    </StyledCast>
+      </StyledCast>
+    )
   );
 };
 

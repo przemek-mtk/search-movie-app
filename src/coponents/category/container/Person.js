@@ -36,7 +36,7 @@ const Perosn = (props) => {
       <About
         title={name}
         date={birthday}
-        lastData={deathday}
+        lastDate={deathday}
         infobar={<AboutPersonInfobar {...propsPersonInfobar} />}
       />
       <Description
@@ -45,8 +45,8 @@ const Perosn = (props) => {
         overview={biography}
       />
 
-      <KnownFor title="Cast" movies={cast} posterSize={poster_sizes[0]} />
-      <KnownFor title="Crew" movies={crew} posterSize={poster_sizes[0]} />
+      <KnownFor title="Cast" movies={cast} />
+      <KnownFor title="Crew" movies={crew} />
     </div>
   );
 };

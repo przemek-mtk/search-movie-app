@@ -33,7 +33,7 @@ const StyledDescription = styled.div`
   }
 
   .movie-desc.show p {
-    max-height: 1700px;
+    max-height: 1000px;
   }
 
   .movie-desc.show p:before {

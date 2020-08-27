@@ -4,12 +4,11 @@ import { CategoryContext } from "../../context/CategoryContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark as fasBookmark } from "@fortawesome/fontawesome-free-solid";
 import { faBookmark as farBookmark } from "@fortawesome/fontawesome-free-regular";
+import Title from "../Title";
 
 import PropTypes from "prop-types";
 
-const About = ({ title, date, lastData, infobar }) => {
-  const year = new Date(date).getFullYear();
-  const lastYear = lastData ? new Date(lastData).getFullYear() : null; //only for tv
+const About = ({ title, date, lastDate, infobar }) => {
   const { data, isSaved, dispatch, match } = useContext(CategoryContext);
   const { category } = match.params;
 
@@ -31,14 +30,7 @@ const About = ({ title, date, lastData, infobar }) => {
   return (
     <StyledAbout>
       <div className="movie-header">
-        <h2 className="title">
-          {title}
-          {lastYear ? (
-            <span>{` (${year}-${lastYear})`}</span>
-          ) : (
-            <span>{` (${year})`}</span>
-          )}
-        </h2>
+        <Title title={title} date={date} lastDate={lastDate} />
         <div className="save" onClick={toggleDataInLocalStorage}>
           <FontAwesomeIcon icon={isSaved ? fasBookmark : farBookmark} />
         </div>

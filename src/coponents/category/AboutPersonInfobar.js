@@ -16,13 +16,15 @@ const AboutPersonInfobar = ({
   return (
     <div className="person-infobar">
       <span>{known_for_department}</span>
-      <p>
-        <span>
-          <strong>born: </strong>
-        </span>
-        <span>{birthdayRepresentation} </span>
-        {place_of_birth && <span>{`in ${place_of_birth}`}</span>}
-      </p>
+      {birthday && (
+        <p>
+          <span>
+            <strong>born: </strong>
+          </span>
+          <span>{birthdayRepresentation} </span>
+          {place_of_birth && <span>{`in ${place_of_birth}`}</span>}
+        </p>
+      )}
       {deathday && (
         <p>
           <span>

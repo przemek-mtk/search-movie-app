@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const StyledKnownFor = styled.div`
   padding: 10px;
-  
 
   h2 {
     font-family: "Roboto Condensed", sans-serif;
@@ -19,11 +18,11 @@ const StyledKnownFor = styled.div`
     width: 100%;
     white-space: nowrap;
     overflow-x: auto;
-    text-align: center;
   }
 
   .movie-list__item {
     display: inline-block;
+    text-align: center;
     width: 100px;
     margin: 5px;
   }

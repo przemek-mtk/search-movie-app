@@ -1,10 +1,10 @@
 import React from "react";
-import StyledDetailedInfoVote from "./styles/StyledDetailedInfoVote";
+import StyledInfoVote from "./styles/StyledInfoVote";
 import PropTypes from "prop-types";
 
-const DetailedInfoVote = ({ average, count }) => {
+const InfoVote = ({ average, count, ...rest }) => {
   return (
-    <StyledDetailedInfoVote>
+    <StyledInfoVote {...rest}>
       <i className="fa fa-star vote__icon"></i>
       <div className="vote__count">
         <span>
@@ -12,13 +12,13 @@ const DetailedInfoVote = ({ average, count }) => {
         </span>
         <span>{count}</span>
       </div>
-    </StyledDetailedInfoVote>
+    </StyledInfoVote>
   );
 };
 
-DetailedInfoVote.propTypes = {
+InfoVote.propTypes = {
   average: PropTypes.number.isRequired,
   count: PropTypes.number.isRequired,
 };
 
-export default DetailedInfoVote;
+export default InfoVote;

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { CategoryContext } from "../../context/CategoryContext";
 import StyledDetailedInfo from "./styles/StyledDetailedInfo";
-import DetailedInfoVote from "./DetailedInfoVote";
+import InfoVote from "../InfoVote";
 import DetailedInfoMeta from "./DetailedInfoMeta";
 
 const DetiledInfo = () => {
@@ -20,11 +20,14 @@ const DetiledInfo = () => {
   } = data;
 
   const getOnlyName = (array) => {
-    return array && array
-      .reduce((acc, occ) => {
-        return [...acc, occ.name];
-      }, [])
-      .join(", ");
+    return (
+      array &&
+      array
+        .reduce((acc, occ) => {
+          return [...acc, occ.name];
+        }, [])
+        .join(", ")
+    );
   };
 
   const studios = getOnlyName(production_companies);
@@ -33,7 +36,7 @@ const DetiledInfo = () => {
 
   return (
     <StyledDetailedInfo>
-      <DetailedInfoVote average={vote_average} count={vote_count} />
+      <InfoVote average={vote_average} count={vote_count} detail />
 
       <ul>
         <DetailedInfoMeta label="status" data={status} />

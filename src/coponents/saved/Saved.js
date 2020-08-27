@@ -1,31 +1,37 @@
 import React from "react";
 import { NavLink, Switch, Route, useRouteMatch } from "react-router-dom";
 import SavedList from "./SavedList"
+import StyledSaved from "./styles/StyleSaved"
+import ConfigContextProvider from "../../context/ConfigContext"
 
 const Saved = (props) => {
   const { path, url } = useRouteMatch();
 
+
   return (
-    <div>
+    <ConfigContextProvider>
+
+    <StyledSaved>
       <ul>
         <li>
-          <NavLink to={`${url}/movie`} activeClassName="saved-menu--active">movies</NavLink>
+          <NavLink to={`${url}/movie`} activeClassName="saved-link--active">movies</NavLink>
         </li>
         <li>
-          <NavLink to={`${url}/tv`} activeClassName="saved-menu--active">TV series</NavLink>
+          <NavLink to={`${url}/tv`} activeClassName="saved-link--active">TV series</NavLink>
         </li>
         <li>
-          <NavLink to={`${url}/actor`} activeClassName="saved-menu--active">actors</NavLink>
+          <NavLink to={`${url}/person`} activeClassName="saved-link--active">actors</NavLink>
         </li>
       </ul>
 
       <Switch>
-        <Route path={`${path}/:type`} component={SavedList} />
+        <Route exact path={`${path}/:type`} component={SavedList} />
         <Route exact path="*" >
           No match !!!!!
         </Route>
       </Switch>
-    </div>
+    </StyledSaved>
+    </ConfigContextProvider>
   );
 };
 
