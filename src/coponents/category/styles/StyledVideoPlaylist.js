@@ -9,23 +9,26 @@ const StyledVideosPlaylist = styled.div`
   /* background: rgba(200, 200, 200, 0.4); */
   background: rgba(20, 20, 20, 0.4);
 
-
   .player-box {
+    
+    background: ${(props) => props.theme.surface};
+  }
+
+  .player-wrapper {
     position: relative;
     width: 100%;
     margin: 0 auto;
     height: auto;
     max-height: 70vh;
     margin-top: calc(100vh - 85vh - 20px);
-    background: pink;
     border-radius: 4px;
-    padding: 20px;
     border: 1px solid #999;
     overflow: auto;
-    
+
+    width: 100%;
+    padding-bottom: 56.25%;
+    position: relative;
   }
-
-
 `;
 
 export default StyledVideosPlaylist;

@@ -45,7 +45,7 @@ const StyledPoster = styled.div`
       width: 210px;
 
       img {
-        border: 2px solid ${(props) => props.theme.secondary};
+        border: 2px solid ${(props) => (props.active ? props.theme.primary : props.theme.secondary)};
       }
 
       .play {
@@ -56,6 +56,18 @@ const StyledPoster = styled.div`
       .play-icon {
         margin-left: 2px;
         font-size: 14px;
+      }
+    `}
+
+
+    ${(props) =>
+    props.player &&
+    css`
+      margin: 5px 5px 5px 0;
+      width: 145px;
+
+      &:last-of-type {
+        margin-right: 0;
       }
     `}
 `;

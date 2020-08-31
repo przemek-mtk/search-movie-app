@@ -1,26 +1,26 @@
-import React from 'react';
-import ReactPlayer from "react-player"
-import StyledVideoPlaylist from "./styles/StyledVideoPlaylist"
+import React from "react";
+import ReactPlayer from "react-player";
+import StyledVideoPlaylist from "./styles/StyledVideoPlaylist";
 
-const VideoPlaylist = ({}) => {
-  return ( 
+const VideoPlaylist = ({ activeVideo, children }) => {
+  return (
     <StyledVideoPlaylist>
-
       <div className="player-box">
 
+      <div className="player-wrapper">
         <ReactPlayer
-          width = "100%"
-          height = "100%"
-          // playing={autoplay}
+          style={{ position: "absolute", top: "0" }}
+          width="100%"
+          height="100%"
+          playing={true}
           controls={true}
-          // url={active.video}
+          url={`https://www.youtube.com/watch?v=${activeVideo}`}
           />
-
       </div>
-
-
+      {children}
+          </div>
     </StyledVideoPlaylist>
-   );
-}
- 
+  );
+};
+
 export default VideoPlaylist;
