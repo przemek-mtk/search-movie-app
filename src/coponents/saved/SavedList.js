@@ -26,10 +26,6 @@ const Saved = (props) => {
     let list = [...savedList];
     list.splice(index, 1);
     setSavedList(list);
-
-    let savedData = JSON.parse(window.localStorage.getItem(`${type}-${id}`));
-    savedData.isSaved = false;
-    window.localStorage.setItem(`${type}-${id}`, JSON.stringify(savedData));
   };
 
   return (

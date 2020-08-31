@@ -3,6 +3,7 @@ import { CategoryContext } from "../../context/CategoryContext";
 import StyledDetailedInfo from "./styles/StyledDetailedInfo";
 import InfoVote from "../InfoVote";
 import DetailedInfoMeta from "./DetailedInfoMeta";
+import { withSeparator } from "../../helpers/withSeparator";
 
 const DetiledInfo = () => {
   const { data } = useContext(CategoryContext);
@@ -40,8 +41,16 @@ const DetiledInfo = () => {
 
       <ul>
         <DetailedInfoMeta label="status" data={status} />
-        <DetailedInfoMeta label="budget" data={budget} unit="$" />
-        <DetailedInfoMeta label="box office" data={revenue} unit="$" />
+        <DetailedInfoMeta
+          label="budget"
+          data={withSeparator(budget)}
+          unit="$"
+        />
+        <DetailedInfoMeta
+          label="box office"
+          data={withSeparator(revenue)}
+          unit="$"
+        />
         <DetailedInfoMeta label="seasons" data={number_of_seasons} />
         <DetailedInfoMeta label="episodes" data={number_of_episodes} />
         <DetailedInfoMeta label="created by" data={createdBy} />

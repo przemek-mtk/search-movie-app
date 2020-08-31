@@ -1,6 +1,7 @@
 import React from "react";
 import StyledInfoVote from "./styles/StyledInfoVote";
 import PropTypes from "prop-types";
+import { withSeparator } from "../helpers/withSeparator";
 
 const InfoVote = ({ average, count, ...rest }) => {
   return (
@@ -10,7 +11,7 @@ const InfoVote = ({ average, count, ...rest }) => {
         <span>
           <strong>{average}</strong>/10
         </span>
-        <span>{count}</span>
+        <span>{withSeparator(count)}</span>
       </div>
     </StyledInfoVote>
   );

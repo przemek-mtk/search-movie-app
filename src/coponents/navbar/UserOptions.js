@@ -1,8 +1,6 @@
 import React, { useContext, useRef } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { faMoon, faBookmark } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import StyledUserOptions from "./styles/StyledUserOptions";
 import { useOutsideClick } from "../../hooks/useOutsideClick";
 import { NightmodeContext } from "../../context/NightmodeContext";
@@ -16,7 +14,7 @@ const UserOptions = ({ setOptionVisible }) => {
   return (
     <StyledUserOptions ref={options}>
       <button className="options__element" onClick={changeTheme}>
-        <FontAwesomeIcon icon={faMoon} />
+        <i className="fas fa-moon"></i>
         <span>nightmode</span>
         <label>
           <input
@@ -34,7 +32,7 @@ const UserOptions = ({ setOptionVisible }) => {
         className="options__element"
         onClick={() => setOptionVisible(false)}
       >
-        <FontAwesomeIcon icon={faBookmark} />
+        <i className="fas fa-bookmark"></i>
         <span>saved</span>
       </Link>
     </StyledUserOptions>

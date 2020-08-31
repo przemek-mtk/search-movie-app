@@ -20,8 +20,6 @@ const CategoryContent = (props) => {
   const category = useContext(CategoryContext);
   const theme = useContext(ThemeContext);
 
-  console.log("Category", category);
-
   if (config.isError || category.isError) {
     return <ErrorPage />;
   }
@@ -34,7 +32,7 @@ const CategoryContent = (props) => {
       <Spinner
         side={80}
         color={theme.primarySpinner}
-        bg={theme.surfaceSpinner}
+        bg={theme.backgroundSpinner}
       />
     </StyledBoxSpinner>
   ) : (

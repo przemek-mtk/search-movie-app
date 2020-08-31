@@ -6,7 +6,7 @@ const StyledSaved = styled.div`
   ul {
     margin: 0;
     margin-bottom: 15px;
-    padding: 0;
+    padding: 10px 0 0;
     list-style: none;
     text-transform: uppercase;
     display: flex;

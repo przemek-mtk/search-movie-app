@@ -46,7 +46,7 @@ const StyledKnownFor = styled.div`
   }
 
   .movie-list__info p:last-of-type {
-    color: ${(props) => props.theme.shadow};
+    color: ${(props) => props.theme.secondary};
   }
 `;
 

@@ -3,9 +3,6 @@ import styled from "styled-components";
 const StyledUnsaveBtn = styled.div`
   height: 32px;
   width: 32px;
-  border: 2px solid transparent;
-  border-radius: 4px;
-  background: ${(props) => props.theme.surface};
   position: relative;
 
   button {
@@ -16,13 +13,15 @@ const StyledUnsaveBtn = styled.div`
     line-height: 28px;
     text-align: center;
     color: ${(props) => props.theme.primary};
-    background: transparent;
-    border: none;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    background: ${(props) => props.theme.background};
     outline: none;
     cursor: pointer;
   }
 
-  &:hover, &:focus {
+  button:focus,
+  button:hover {
     /* ze względu na opacity dla bg i border */
     background: ${(props) =>
       props.nightmode ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)"};
@@ -31,9 +30,8 @@ const StyledUnsaveBtn = styled.div`
         props.nightmode ? "rgba(255, 255, 255, 0.2)" : "rgba(0, 0, 0, 0.2)"};
   }
 
-
   .unsave-option {
-    margin-top: 2px; 
+    margin-top: 3px;
     background: ${(props) => props.theme.surface};
     color: ${(props) => props.theme.onbackground};
     position: absolute;
@@ -44,7 +42,7 @@ const StyledUnsaveBtn = styled.div`
     z-index: 9999;
     padding: 15px 15px;
     outline: none;
-    cursor:pointer;
+    cursor: pointer;
     text-transform: capitalize;
     font-weight: 600;
   }

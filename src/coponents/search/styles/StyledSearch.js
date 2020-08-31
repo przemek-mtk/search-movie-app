@@ -1,26 +1,23 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 const StyledSearch = styled.section`
   width: 100%;
   /* height: 100%; */
-  
+
   /* może tylko dla dużych szerokości */
   /* display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center; */
-  font-family: 'Open Sans', sans-serif;
-  
-
+  font-family: "Open Sans", sans-serif;
 
   .search-box {
     width: 90%;
     max-width: 700px;
-    min-height: 150px; 
+    min-height: 150px;
     margin: 40px auto;
     padding: 10px 20px 0;
-    background: ${props => props.theme.surface};
-    box-shadow: 0 0 4px ${props => props.theme.shadow};
+    box-shadow: 0 0 4px ${(props) => props.theme.shadow};
     border-radius: 4px;
 
     display: flex;
@@ -42,28 +39,21 @@ const StyledSearch = styled.section`
     background: transparent;
     font-size: 14px;
     font-weight: 400;
-    color: ${props => props.theme.onsurface};
-    border: 1px solid ${props => props.theme.onsurface};
+    border: 1px solid ${(props) => props.theme.onsurface};
     border-radius: 4px;
     outline: none;
   }
 
-
   .search-box__input:hover {
-    border-color: ${props => props.theme.onbackground};
+    border-color: ${(props) => props.theme.onbackground};
   }
 
-/* style for focus input */
-  .search-box__input:focus {
-    border-color: ${props => props.theme.primary};
-    box-shadow: 0 0 0 1px ${props => props.theme.primary};
-    caret-color: ${props => props.theme.primary};
-  }
-
+  /* style for focus input */
+  .search-box__input:focus,
   .search-box__input.focus {
-    border-color: ${props => props.theme.primary};
-    box-shadow: 0 0 0 1px ${props => props.theme.primary};
-    caret-color: ${props => props.theme.primary};
+    border-color: ${(props) => props.theme.primary};
+    box-shadow: 0 0 0 1px ${(props) => props.theme.primary};
+    caret-color: ${(props) => props.theme.primary};
   }
 
   .search-box__input + span {
@@ -72,36 +62,30 @@ const StyledSearch = styled.section`
     top: 16px;
     left: 12px;
     font-size: 14px;
-    color: ${props => props.theme.onsurface};
+    color: ${(props) => props.theme.onsurface};
     text-transform: capitalize;
-    background: ${props => props.theme.surface};
+    background: ${(props) => props.theme.background};
     transition: 0.2s ease top;
   }
 
-  .search-box__input:focus + span {
-    font-size: 10px;
-    font-weight: 600;
-    color: ${props => props.theme.primary};
-    top: -6px;
-  }
-
+  .search-box__input:focus + span,
   .search-box__input.focus + span {
     font-size: 10px;
     font-weight: 600;
-    color: ${props => props.theme.primary};
+    color: ${(props) => props.theme.primary};
     top: -6px;
   }
 
   .search-box__icon {
-    position: absolute; 
+    position: absolute;
     top: 16px;
     right: 12px;
     font-size: 16px;
-    color: ${props => props.theme.onsurface};
+    color: ${(props) => props.theme.onsurface};
   }
 
   .search-box__spinner {
-    position: absolute; 
+    position: absolute;
     top: 14px;
     right: 10px;
   }
@@ -114,10 +98,9 @@ const StyledSearch = styled.section`
     height: auto;
     max-height: 200px;
     overflow-y: auto;
-    border: 1px solid ${props => props.theme.shadow};
+    border: 1px solid ${(props) => props.theme.primary};
     border-top: none;
   }
-
 `;
 
 export default StyledSearch;

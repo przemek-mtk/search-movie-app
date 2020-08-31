@@ -27,9 +27,9 @@ const Movie = (props) => {
     reviews,
     images,
   } = data;
-  const trailers = videos.results.filter((video) => video.type === "Trailer");
-  const cast = credits.cast;
-  reviews = reviews.results.slice(0, 7);
+  const trailers = videos && videos.results.filter((video) => video.type === "Trailer");
+  const cast = credits && credits.cast;
+  const notice = reviews && reviews.results.slice(0, 7);
 
   return (
     <section>
@@ -55,7 +55,7 @@ const Movie = (props) => {
         posterSize={backdrop_sizes[0]}
       />
       <Cast cast={cast} profileSizes={poster_sizes[0]} />
-      <Reviews reviews={reviews} />
+      <Reviews reviews={notice} />
     </section>
   );
 };

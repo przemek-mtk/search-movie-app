@@ -45,7 +45,7 @@ const Search = (props) => {
                 <Spinner
                   side={24}
                   color={theme.primarySpinner}
-                  bg={theme.surfaceSpinner}
+                  bg={theme.backgroundSpinner}
                 />
               </div>
             ) : (

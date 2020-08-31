@@ -1,30 +1,35 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import StyledAbout from "./styles/StyledAbout";
 import { CategoryContext } from "../../context/CategoryContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark as fasBookmark } from "@fortawesome/fontawesome-free-solid";
 import { faBookmark as farBookmark } from "@fortawesome/fontawesome-free-regular";
 import Title from "../Title";
-
 import PropTypes from "prop-types";
 
 const About = ({ title, date, lastDate, infobar }) => {
-  const { data, isSaved, dispatch, match } = useContext(CategoryContext);
-  const { category } = match.params;
+  const { data, match } = useContext(CategoryContext);
+  const { category, id } = match.params;
+
+  const [isSaved, setSaved] = useState(() => {
+    const movies = JSON.parse(window.localStorage.getItem(`${category}`)) || [];
+    const searchedItem = movies.find((movie) => movie.id === Number(id));
+
+    return searchedItem ? true : false;
+  });
 
   const toggleDataInLocalStorage = () => {
     let movies = JSON.parse(window.localStorage.getItem(`${category}`)) || [];
-    let savedData = [...movies];
 
     if (isSaved) {
       const index = movies.findIndex((movie) => movie.id === data.id);
-      savedData.splice(index, 1);
+      movies.splice(index, 1);
     } else {
-      savedData.unshift(data);
+      movies.unshift(data);
     }
 
-    window.localStorage.setItem(`${category}`, JSON.stringify(savedData));
-    dispatch({ type: "TOGGLE_SAVE_DATA" });
+    window.localStorage.setItem(`${category}`, JSON.stringify(movies));
+    setSaved((prev) => !prev);
   };
 
   return (

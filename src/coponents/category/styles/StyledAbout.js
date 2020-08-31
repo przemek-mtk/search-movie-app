@@ -15,6 +15,12 @@ const StyledAboutMovie = styled.div`
   .save {
     color: ${(props) => props.theme.primary};
     font-size: 28px;
+    outline: none;
+  }
+
+  .save:hover svg {
+    transform: scale(1.1);
+    opacity: 0.6;
   }
 
   .save svg {
@@ -27,6 +33,7 @@ const StyledAboutMovie = styled.div`
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
+    transition: transform 0.2s ease;
   }
 
   .movie-infobar {

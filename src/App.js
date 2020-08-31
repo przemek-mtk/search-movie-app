@@ -18,7 +18,6 @@ function App() {
     <BrowserRouter>
       <ThemeProvider theme={nightmode ? themeDark : themeLight}>
         <SearchContextProvider>
-          <>
             <Navbar />
 
             <Switch>
@@ -29,7 +28,6 @@ function App() {
             </Switch>
 
             <GloabalStyle />
-          </>
         </SearchContextProvider>
       </ThemeProvider>
     </BrowserRouter>

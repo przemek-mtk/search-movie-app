@@ -45,8 +45,8 @@ const Perosn = (props) => {
         overview={biography}
       />
 
-      <KnownFor title="Cast" movies={cast} />
-      <KnownFor title="Crew" movies={crew} />
+      {cast && <KnownFor title="Cast" movies={cast} />}
+      {crew && <KnownFor title="Crew" movies={crew} />}
     </section>
   );
 };

@@ -16,7 +16,7 @@ const StyledReviewPost = styled.div`
   .review-post__author {
     margin: 8px 0;
     font-size: 16px;
-    color: ${(props) => props.theme.shadow};
+    color: ${(props) => props.theme.secondary};
   }
 
   .review-post__content {

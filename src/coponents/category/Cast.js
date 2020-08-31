@@ -47,7 +47,7 @@ const Cast = ({ cast, profileSizes }) => {
               <Spinner
                 side={40}
                 color={theme.primarySpinner}
-                bg={theme.surfaceSpinner}
+                bg={theme.backgroundSpinner}
               />
             ) : (
               <button

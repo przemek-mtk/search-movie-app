@@ -9,7 +9,7 @@ const UnsaveBtn = ({ ...rest }) => {
   return (
     <StyledUnsaveBtn>
       <button onClick={() => setShowOption((prevState) => !prevState)}>
-        <i class="fas fa-ellipsis-v"></i>
+        <i className="fas fa-ellipsis-v"></i>
       </button>
 
       {showOption && <UnsaveOption setShowOption={setShowOption} {...rest} />}

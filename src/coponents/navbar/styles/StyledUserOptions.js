@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 const StyledUserOptions = styled.div`
   margin-top: 2px; 
-  background: ${props => props.theme.surface};
+  background: ${props => props.theme.background};
   color: ${props => props.theme.onbackground};
   position: absolute;
   top: 100%;
@@ -29,13 +29,13 @@ const StyledUserOptions = styled.div`
     padding: 15px 15px;
     border: none;
     background: transparent;
-    color: ${props => props.theme.onsurface};
+    color: ${props => props.theme.onbackground};
     outline: none;
     cursor:pointer;
   }
 
   .options__element:hover {
-    background: ${props => props.theme.background};
+    background: ${props => props.theme.surface};
   }
 
   .options__element * {
@@ -75,7 +75,7 @@ const StyledUserOptions = styled.div`
     width: 35px;
     height: 12px;
     border-radius: 25px;
-    background: ${props => props.theme.shadow};
+    background: ${props => props.theme.secondary};
     position: relative;
     cursor: pointer;
     transition: 0.4s;

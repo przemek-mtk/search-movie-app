@@ -5,7 +5,7 @@ const StyledDetailedInfoMeta = styled.li`
 
   .meta_label{
     text-transform: capitalize;
-    color: ${props => props.theme.shadow};
+    color: ${props => props.theme.secondary};
     padding-right: 4px;
   }
 `;

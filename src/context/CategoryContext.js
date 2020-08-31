@@ -15,12 +15,9 @@ const CategoryContextProvider = ({ location, history, match, children }) => {
       window.localStorage.getItem(`${category}-${id}`)
     );
 
-    console.log("reducer", savedData);
-
     return {
       isLoading: false,
       isError: false,
-      isSaved: savedData ? savedData.isSaved : false,
       data: savedData ? savedData.data : null,
     };
   });
@@ -30,32 +27,35 @@ const CategoryContextProvider = ({ location, history, match, children }) => {
   }, [resources, category, id]);
 
   useEffect(() => {
-    console.log("useEffect", resources)
-    
-    const appendToResponse =
-    category === "person"
-    ? "combined_credits"
-    : "videos%2Ccredits%2Creviews%2Cimages&include_image_language=en%2Cnull";
-    
-    const fetchData = async () => {
-      try {
-        dispatch({ type: "LOAD_DATA" });
-        const response = await axios.get(
-          `https://api.themoviedb.org/3/${category}/${id}?api_key=${API_KEY}&language=en-US&append_to_response=${appendToResponse}`
-        );
-        const data = response.data;
-        dispatch({ type: "SUCCES_DATA", data });
-      } catch (e) {
-        //jakiś tam error
-        dispatch({ type: "ERROR_DATA" });
-      }
-    };
+    const savedData = JSON.parse(
+      window.localStorage.getItem(`${category}-${id}`)
+    );
 
-    fetchData();
+    if (savedData.data !== null) {
+      dispatch({ type: "SUCCES_DATA", data: savedData.data });
+    } else {
+      const appendToResponse =
+        category === "person"
+          ? "combined_credits"
+          : "videos%2Ccredits%2Creviews%2Cimages&include_image_language=en%2Cnull";
+
+      const fetchData = async () => {
+        try {
+          dispatch({ type: "LOAD_DATA" });
+          const response = await axios.get(
+            `https://api.themoviedb.org/3/${category}/${id}?api_key=${API_KEY}&language=en-US&append_to_response=${appendToResponse}`
+          );
+          const data = response.data;
+          dispatch({ type: "SUCCES_DATA", data });
+        } catch (e) {
+          //jakiś tam error
+          dispatch({ type: "ERROR_DATA" });
+        }
+      };
+
+      fetchData();
+    }
   }, [history, match.params.category, match.params.id, history, category, id]);
-
-
-  console.log("CategoryContext", resources)
 
   return (
     <CategoryContext.Provider value={{ ...resources, dispatch, match }}>

@@ -26,7 +26,7 @@ const StyledCastMember = styled.div`
   }
 
   .cast-member__info p:last-of-type {
-    color: ${props => props.theme.shadow};
+    color: ${props => props.theme.secondary};
   }
 `;
 
