@@ -10,21 +10,19 @@ const StyledVideosPlaylist = styled.div`
   background: rgba(20, 20, 20, 0.4);
 
   .player-box {
-    
+    width: 100%;
+    max-height: 70vh;
+    margin: 0 auto;
+    padding: 25px 0;
     background: ${(props) => props.theme.surface};
+    border-radius: 4px;
+    overflow: auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .player-wrapper {
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-    height: auto;
-    max-height: 70vh;
-    margin-top: calc(100vh - 85vh - 20px);
-    border-radius: 4px;
-    border: 1px solid #999;
-    overflow: auto;
-
     width: 100%;
     padding-bottom: 56.25%;
     position: relative;

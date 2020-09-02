@@ -12,7 +12,7 @@ const StyledDescription = styled.div`
   .movie-desc p {
     margin: 0;
     line-height: 1.5em;
-    max-height: 100px;
+    max-height: ${(props) => (props.isGreater ? "130px" : "none")};
     overflow: hidden;
     position: relative;
     transition: max-height 0.7s ease;
@@ -46,11 +46,10 @@ const StyledDescription = styled.div`
     padding: 5px;
     transition: all 0.4s ease;
   }
-  
+
   .movie-desc.show .open-box {
     transform: rotate(180deg);
   }
-
 `;
 
 export default StyledDescription;

@@ -9,8 +9,11 @@ import Videos from "../Videos";
 import Cast from "../Cast";
 import Reviews from "../Reviews";
 import AboutInfobar from "../AboutInfobar";
+import { useVideoPlaylist } from "../../../hooks/useVideoPlaylist";
 
 const Tv = (props) => {
+  const [play, active, setPlay, setActive, playTrailer] = useVideoPlaylist();
+
   const { data } = useContext(CategoryContext);
   const { config } = useContext(ConfigContext);
   let {
@@ -23,7 +26,6 @@ const Tv = (props) => {
     genres,
     poster_path,
     overview,
-    images,
     credits,
     reviews,
   } = data;
@@ -36,6 +38,7 @@ const Tv = (props) => {
   return (
     <section>
       <TrailerPoster
+        onClick={() => playTrailer(trailers[0])}
         posterSize={backdrop_sizes[1]}
         filePath={backdrop_path}
         isVideo={!!trailers.length}
@@ -53,9 +56,12 @@ const Tv = (props) => {
       />
       <DetailedInfo />
       <Videos
-        videos={trailers}
-        images={images.backdrops}
-        posterSize={backdrop_sizes[0]}
+        isTrailer={trailers.length}
+        play={play}
+        active={active}
+        playTrailer={playTrailer}
+        setActive={setActive}
+        setPlay={setPlay}
       />
       <Cast cast={cast} profileSizes={poster_sizes[0]} />
       <Reviews reviews={notice} />

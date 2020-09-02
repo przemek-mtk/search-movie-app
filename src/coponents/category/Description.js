@@ -1,20 +1,24 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import Poster from "../Poster";
 import StyledDescription from "./styles/StyledDescription";
+import { useHideText } from "../../hooks/useHideText";
 
 const Description = ({ overview, ...rest }) => {
-  const [showAll, setShowAll] = useState(false);
+  const paragraphRef = useRef(null);
+  const [isGreater, show, toggleExpand] = useHideText(paragraphRef);
 
   return (
     !!overview.length && (
-      <StyledDescription>
+      <StyledDescription isGreater={isGreater}>
         <Poster {...rest} />
-        <div className={`movie-desc ${showAll ? "show" : ""}`}>
-          <p>{overview}</p>
-          <div className="open-box" onClick={() => setShowAll((prev) => !prev)}>
-            <i className="fa fa-chevron-down"></i>
-          </div>
+        <div className={`movie-desc ${show ? "show" : ""}`}>
+          <p ref={paragraphRef}>{overview}</p>
+          {isGreater ? (
+            <div className="open-box" onClick={toggleExpand}>
+              <i className="fa fa-chevron-down"></i>
+            </div>
+          ) : null}
         </div>
       </StyledDescription>
     )

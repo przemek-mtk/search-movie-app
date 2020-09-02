@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledReviewPost = styled.div`
-  padding: 8px;
+  padding: 8px 8px 16px;
   margin-bottom: 25px;
   background: ${(props) => props.theme.surface};
   color: ${(props) => props.theme.onsurface};
@@ -21,8 +21,7 @@ const StyledReviewPost = styled.div`
 
   .review-post__content {
     line-height: 1.5em;
-
-    max-height: 100px;
+    max-height: ${(props) => (props.isGreater ? "130px" : "none")};
     overflow: hidden;
     position: relative;
 
@@ -31,7 +30,7 @@ const StyledReviewPost = styled.div`
 
   .review-post__content:before {
     content: '';
-    display: block;
+    display: ${(props) => (props.isGreater ? "block" : "none")};;
     width: 100%;
     height: 50%;
     background: ${props => props.theme.surfaceGradient};
