@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 const StyledSaved = styled.div`
   padding: 10px;
+  max-width: 900px;
+  margin: 0 auto;
 
   ul {
     margin: 0;
@@ -38,6 +40,12 @@ const StyledSaved = styled.div`
   .saved-link--active {
     font-weight: 700;
     border-bottom: 2px solid ${(props) => props.theme.onbackground};
+  }
+
+  @media (min-width: 700px) {
+    ul {
+      margin-bottom: 25px;
+    }
   }
 `;
 

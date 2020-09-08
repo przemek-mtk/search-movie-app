@@ -16,6 +16,7 @@ const DetailedInfoMeta = ({ label, data, unit }) => {
 DetailedInfoMeta.propTypes = {
   label: PropTypes.string,
   data: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  unit: PropTypes.string,
 };
 
 export default DetailedInfoMeta;

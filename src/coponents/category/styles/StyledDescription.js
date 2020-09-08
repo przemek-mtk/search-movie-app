@@ -20,7 +20,7 @@ const StyledDescription = styled.div`
 
   .movie-desc p:before {
     content: "";
-    display: block;
+    display: ${(props) => (props.isGreater ? "block" : "none")};
     width: 100%;
     height: 50%;
     background: ${(props) => props.theme.surfaceGradient};

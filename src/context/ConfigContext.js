@@ -7,7 +7,7 @@ const API_KEY = process.env.REACT_APP_MOVIE_SEARCH_API_KEY;
 
 export const ConfigContext = createContext();
 
-const ConfigContextProvider = (props) => {
+const ConfigContextProvider = ({ children }) => {
   const [config, dispatch] = useReducer(configReducer, null, () => {
     const savedData = window.localStorage.getItem("img-config");
     return savedData
@@ -39,7 +39,7 @@ const ConfigContextProvider = (props) => {
 
   return (
     <ConfigContext.Provider value={{ ...config }}>
-      {props.children}
+      {children}
     </ConfigContext.Provider>
   );
 };

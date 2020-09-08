@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 
 const StyledPoster = styled.div`
   width: 100%;
-  max-width: 700px;
   height: auto;
   position: relative;
   cursor: pointer;
@@ -10,6 +9,8 @@ const StyledPoster = styled.div`
   img {
     width: 100%;
     height: auto;
+    display: block;
+    margin: 0 auto;
   }
 
   .play {

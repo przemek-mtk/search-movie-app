@@ -8,13 +8,14 @@ export const StyledNavbar = styled.nav`
 `;
 
 export const StyledList = styled.ul`
-  max-width: 900px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 0;
   list-style: none;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  position: relative;
 
   .nav-list__item {
     height: 48px;

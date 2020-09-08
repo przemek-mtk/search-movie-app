@@ -5,7 +5,7 @@ export const useHideText = (ref) => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    const height = ref.current.offsetHeight;
+    const height = ref.current && ref.current.offsetHeight;
     if (height > 130) {
       setGreater(true);
     }

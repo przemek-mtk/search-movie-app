@@ -7,7 +7,7 @@ const API_KEY = process.env.REACT_APP_MOVIE_SEARCH_API_KEY;
 
 export const SearchContext = createContext();
 
-const SearchContextProvider = (props) => {
+const SearchContextProvider = ({children}) => {
   const [search, dispatch] = useReducer(searchReducer, {
     query: "",
     mediaType: "multi",
@@ -42,7 +42,7 @@ const SearchContextProvider = (props) => {
 
   return (
     <SearchContext.Provider value={{ ...search, dispatch }}>
-      {props.children}
+      {children}
     </SearchContext.Provider>
   );
 };

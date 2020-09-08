@@ -6,11 +6,22 @@ import Spinner from "../Spinner";
 import { ThemeContext } from "styled-components";
 
 const Cast = ({ cast, profileSizes }) => {
-  const [countVisibleCast, setCountVisibleCast] = useState(6);
+  const [countVisibleCast, setCountVisibleCast] = useState(() => {
+    return window.innerWidth > 699 ? 8 : 6;
+  });
+  const [updateCast, setUpdateCast] = useState(() => {
+    return window.innerWidth > 699 ? 12 : 9;
+  });
   const [visibleCast, setVisibleCast] = useState([]);
   const [loadingCast, setLoadingCast] = useState(true);
 
   const theme = useContext(ThemeContext);
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResizeScreen);
+
+    return () => window.removeEventListener("resize", handleResizeScreen);
+  }, []);
 
   useEffect(() => {
     setLoadingCast(true);
@@ -23,7 +34,22 @@ const Cast = ({ cast, profileSizes }) => {
   }, [cast, countVisibleCast]);
 
   const handleLoadCast = () => {
-    setCountVisibleCast((prev) => prev + 9);
+    setCountVisibleCast((prev) => prev + updateCast);
+  };
+
+  const handleResizeScreen = (e) => {
+    const width = window.innerWidth;
+    if (width > 699) {
+      setCountVisibleCast((prev) => {
+        return Math.ceil(prev / 8) * 8;
+      });
+      setUpdateCast(12);
+    } else {
+      setCountVisibleCast((prev) => {
+        return Math.floor(prev / 6) * 6;
+      });
+      setUpdateCast(9);
+    }
   };
 
   return (

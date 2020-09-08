@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 export const NightmodeContext = createContext();
 
-const NightmodeContextProvider = (props) => {
+const NightmodeContextProvider = ({children}) => {
   const [nightmode, setNightmode] = useState(() => {
     const localData = window.localStorage.getItem("nightmode");
     return localData ? JSON.parse(localData) : false;
@@ -19,7 +19,7 @@ const NightmodeContextProvider = (props) => {
 
   return (
     <NightmodeContext.Provider value={{ nightmode, changeTheme }}>
-      {props.children}
+      {children}
     </NightmodeContext.Provider>
   );
 };

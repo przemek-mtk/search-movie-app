@@ -26,8 +26,6 @@ const Description = ({ overview, ...rest }) => {
 };
 
 Description.propTypes = {
-  posterSize: PropTypes.string.isRequired,
-  posterPath: PropTypes.string.isRequired,
   overview: PropTypes.string.isRequired,
 };
 

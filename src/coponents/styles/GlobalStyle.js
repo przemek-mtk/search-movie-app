@@ -18,6 +18,16 @@ const GlobalStyle = createGlobalStyle`
   }
 
 
+  .body--overflow-hidden {
+    overflow: hidden;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 0 4px ${props => props.theme.shadow};}
+  }
+
   /* btn used in 2 components */
   .show-more {
     outline: none;

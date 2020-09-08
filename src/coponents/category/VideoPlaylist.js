@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import ReactPlayer from "react-player";
 import StyledVideoPlaylist from "./styles/StyledVideoPlaylist";
 import PropTypes from "prop-types";
@@ -7,6 +7,11 @@ import { useOutsideClick } from "../../hooks/useOutsideClick";
 const VideoPlaylist = ({ active, setPlay, children }) => {
   const playerBox = useRef(null);
   useOutsideClick(playerBox, () => setPlay(false));
+
+  useEffect(() => {
+    document.body.classList.add("body--overflow-hidden");
+    return () => document.body.classList.remove("body--overflow-hidden");
+  }, []);
 
   return (
     <StyledVideoPlaylist>

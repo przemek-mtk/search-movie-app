@@ -41,7 +41,7 @@ const Videos = ({
 Videos.propTypes = {
   isTrailer: PropTypes.number.isRequired,
   play: PropTypes.bool.isRequired,
-  active: PropTypes.string.isRequired,
+  active: PropTypes.string,
   playTrailer: PropTypes.func.isRequired,
   setActive: PropTypes.func.isRequired,
   setPlay: PropTypes.func.isRequired,

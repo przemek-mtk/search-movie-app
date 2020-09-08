@@ -1,4 +1,4 @@
-import React, {  useContext } from "react";
+import React, { useContext } from "react";
 import TrailerPoster from "../TrailerPoster";
 import { CategoryContext } from "../../../context/CategoryContext";
 import { ConfigContext } from "../../../context/ConfigContext";
@@ -9,7 +9,7 @@ import Videos from "../Videos";
 import Cast from "../Cast";
 import Reviews from "../Reviews";
 import AboutInfobar from "../AboutInfobar";
-import {useVideoPlaylist} from "../../../hooks/useVideoPlaylist"
+import { useVideoPlaylist } from "../../../hooks/useVideoPlaylist";
 
 const Movie = (props) => {
   const [play, active, setPlay, setActive, playTrailer] = useVideoPlaylist();
@@ -34,10 +34,14 @@ const Movie = (props) => {
   const cast = credits && credits.cast;
   const notice = reviews && reviews.results.slice(0, 7);
 
+  const playFirstMovie = () => {
+    if (trailers.length > 0) playTrailer(trailers[0].key);
+  };
+
   return (
-    <section>
+    <section className="container">
       <TrailerPoster
-        onClick={() => playTrailer(trailers[0])}
+        onClick={playFirstMovie}
         posterSize={backdrop_sizes[1]}
         filePath={backdrop_path}
         isVideo={!!trailers.length}

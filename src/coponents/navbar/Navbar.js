@@ -19,9 +19,9 @@ const Navbar = (props) => {
             <i className="fas fa-ellipsis-v"></i>
           </button>
         </li>
-      </StyledList>
 
-      {optionVisible && <UserOptions setOptionVisible={setOptionVisible} />}
+        {optionVisible && <UserOptions setOptionVisible={setOptionVisible} />}
+      </StyledList>
     </StyledNavbar>
   );
 };

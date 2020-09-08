@@ -36,7 +36,7 @@ const Tv = (props) => {
   const notice = reviews && reviews.results.slice(0, 7);
 
   return (
-    <section>
+    <section className="container">
       <TrailerPoster
         onClick={() => playTrailer(trailers[0])}
         posterSize={backdrop_sizes[1]}

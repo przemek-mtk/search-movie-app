@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from "react";
-
-/*te ustawienia obecne są dla małego spinera w search */
+import PropTypes from "prop-types";
 
 const Spinner = (props) => {
   const canvas = useRef(null);
@@ -58,7 +57,20 @@ const Spinner = (props) => {
     };
   }, []);
 
-  return <canvas ref={canvas} width={`${props.side}px`} height={`${props.side}px`} {...props} />
+  return (
+    <canvas
+      ref={canvas}
+      width={`${props.side}px`}
+      height={`${props.side}px`}
+      {...props}
+    />
+  );
+};
+
+Spinner.propTypes = {
+  side: PropTypes.number.isRequired,
+  color: PropTypes.string.isRequired,
+  bg: PropTypes.string.isRequired,
 };
 
 export default Spinner;

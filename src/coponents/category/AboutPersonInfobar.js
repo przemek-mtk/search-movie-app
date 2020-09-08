@@ -42,7 +42,7 @@ AboutPersonInfobar.propTypes = {
   known_for_department: PropTypes.string.isRequired,
   birthday: PropTypes.string.isRequired,
   place_of_birth: PropTypes.string.isRequired,
-  deathday: PropTypes.string.isRequired,
+  deathday: PropTypes.string,
 };
 
 export default AboutPersonInfobar;

@@ -2,13 +2,6 @@ import styled from "styled-components";
 
 const StyledSearch = styled.section`
   width: 100%;
-  /* height: 100%; */
-
-  /* może tylko dla dużych szerokości */
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
   font-family: "Open Sans", sans-serif;
 
   .search-box {
@@ -40,6 +33,7 @@ const StyledSearch = styled.section`
     font-size: 14px;
     font-weight: 400;
     border: 1px solid ${(props) => props.theme.onsurface};
+    color: ${(props) => props.theme.onsurface};
     border-radius: 4px;
     outline: none;
   }
@@ -100,6 +94,12 @@ const StyledSearch = styled.section`
     overflow-y: auto;
     border: 1px solid ${(props) => props.theme.primary};
     border-top: none;
+  }
+
+  @media (min-width: 700px) {
+    .search-box {
+      margin-top: 80px;
+    }
   }
 `;
 

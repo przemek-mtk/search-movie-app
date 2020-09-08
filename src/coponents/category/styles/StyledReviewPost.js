@@ -30,7 +30,7 @@ const StyledReviewPost = styled.div`
 
   .review-post__content:before {
     content: '';
-    display: ${(props) => (props.isGreater ? "block" : "none")};;
+    display: ${(props) => (props.isGreater ? "block" : "none")};
     width: 100%;
     height: 50%;
     background: ${props => props.theme.surfaceGradient};

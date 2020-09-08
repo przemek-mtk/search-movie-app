@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { useHideText } from "../../hooks/useHideText";
 
 const ReviewPost = ({ review }) => {
-  // const [showAll, setShowAll] = useState(false);
   const paragraphRef = useRef(null);
   const [isGreater, show, toggleExpand] = useHideText(paragraphRef);
 

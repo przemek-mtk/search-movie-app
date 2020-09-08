@@ -32,7 +32,7 @@ const Perosn = (props) => {
   const { cast, crew } = combined_credits;
 
   return (
-    <section>
+    <section className="container">
       <About
         title={name}
         date={birthday}

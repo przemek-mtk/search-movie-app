@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark as fasBookmark } from "@fortawesome/fontawesome-free-solid";
 import { faBookmark as farBookmark } from "@fortawesome/fontawesome-free-regular";
 import Title from "../Title";
+import PopupBox from "./PopupBox"
 import PropTypes from "prop-types";
 
 const About = ({ title, date, lastDate, infobar }) => {
@@ -17,6 +18,7 @@ const About = ({ title, date, lastDate, infobar }) => {
 
     return searchedItem ? true : false;
   });
+  const [actionArray, setActionArray] = useState([]);
 
   const toggleDataInLocalStorage = () => {
     let movies = JSON.parse(window.localStorage.getItem(`${category}`)) || [];
@@ -32,24 +34,49 @@ const About = ({ title, date, lastDate, infobar }) => {
     setSaved((prev) => !prev);
   };
 
+  const deleteElement = () => {
+    const copyActionArr = [...actionArray];
+    copyActionArr.shift();
+    setActionArray(copyActionArr);
+  };
+
+  const addPopup = () => {
+    let currentAction = [...actionArray];
+    const message = isSaved
+      ? "Unsaved successfully"
+      : "Saved successfully";
+
+    currentAction.push({ message, time: Date.now() });
+    setActionArray(currentAction);
+  };
+
   return (
     <StyledAbout>
       <div className="movie-header">
         <Title title={title} date={date} lastDate={lastDate} />
-        <div className="save" onClick={toggleDataInLocalStorage}>
+        <div
+          className="save"
+          onClick={() => {
+            toggleDataInLocalStorage();
+            addPopup();
+          }}
+        >
           <FontAwesomeIcon icon={isSaved ? fasBookmark : farBookmark} />
         </div>
       </div>
 
       {infobar}
+
+      <PopupBox actionArray={actionArray} deleteElement={deleteElement} />
     </StyledAbout>
   );
 };
 
+
 About.propTypes = {
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
-  lastAirData: PropTypes.string,
+  lastDate: PropTypes.string,
   infobar: PropTypes.element,
 };
 
