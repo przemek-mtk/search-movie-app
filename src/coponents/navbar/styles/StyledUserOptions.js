@@ -1,21 +1,20 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 const StyledUserOptions = styled.div`
-  margin-top: 2px; 
-  background: ${props => props.theme.background};
-  color: ${props => props.theme.onbackground};
+  margin-top: 2px;
+  background: ${(props) => props.theme.background};
+  color: ${(props) => props.theme.onbackground};
   position: absolute;
   top: 100%;
   right: 10px;
   border-radius: 4px;
-  box-shadow: 0px 0px 2px 1px ${props => props.theme.shadow};
+  box-shadow: 0px 0px 2px 1px ${(props) => props.theme.shadow};
   z-index: 9999;
-
 
   button.options__element {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    border-bottom: 1px solid ${props => props.theme.shadow};
+    border-bottom: 1px solid ${(props) => props.theme.shadow};
   }
 
   a.options__element {
@@ -29,13 +28,13 @@ const StyledUserOptions = styled.div`
     padding: 15px 15px;
     border: none;
     background: transparent;
-    color: ${props => props.theme.onbackground};
+    color: ${(props) => props.theme.onbackground};
     outline: none;
-    cursor:pointer;
+    cursor: pointer;
   }
 
   .options__element:hover {
-    background: ${props => props.theme.surface};
+    background: ${(props) => props.theme.surface};
   }
 
   .options__element * {
@@ -47,7 +46,7 @@ const StyledUserOptions = styled.div`
   .options__element svg {
     font-size: 16px;
     width: 16px;
-    color: ${props => props.theme.primary};
+    color: ${(props) => props.theme.primary};
   }
 
   .options__element input[type="checkbox"] {
@@ -57,14 +56,14 @@ const StyledUserOptions = styled.div`
 
   .options__element span {
     padding: 0 15px;
-    
+
     font-size: 12px;
     font-weight: 600;
     text-transform: capitalize;
   }
 
-  .options__element input[type="checkbox"]:focus + .switch{
-    box-shadow: 0 0 2px ${props => props.theme.primary};
+  .options__element input[type="checkbox"]:focus + .switch {
+    box-shadow: 0 0 2px ${(props) => props.theme.primary};
   }
 
   .options__element input[type="checkbox"]:checked + .switch:before {
@@ -75,18 +74,18 @@ const StyledUserOptions = styled.div`
     width: 35px;
     height: 12px;
     border-radius: 25px;
-    background: ${props => props.theme.secondary};
+    background: ${(props) => props.theme.secondary};
     position: relative;
     cursor: pointer;
     transition: 0.4s;
   }
 
   .switch:before {
-    content: '';
+    content: "";
     display: block;
     width: 16px;
     height: 16px;
-    background:  ${props => props.theme.primary};
+    background: ${(props) => props.theme.primary};
     border-radius: 25px;
     position: absolute;
     top: -2px;

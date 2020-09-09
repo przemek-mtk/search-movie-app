@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { useParams } from "react-router-dom";
 import { CategoryContext } from "../../../context/CategoryContext";
 import { ConfigContext } from "../../../context/ConfigContext";
 import About from "../About";
@@ -8,7 +7,6 @@ import KnownFor from "../KnownFor";
 import AboutPersonInfobar from "../AboutPersonInfobar";
 
 const Perosn = (props) => {
-  const { category, id } = useParams();
   const { data } = useContext(CategoryContext);
   const { config } = useContext(ConfigContext);
   const {
@@ -21,7 +19,7 @@ const Perosn = (props) => {
     place_of_birth,
     combined_credits,
   } = data;
-  const { backdrop_sizes, poster_sizes, profile_sizes, still_sizes } = config;
+  const { poster_sizes } = config;
   const propsPersonInfobar = {
     known_for_department,
     birthday,

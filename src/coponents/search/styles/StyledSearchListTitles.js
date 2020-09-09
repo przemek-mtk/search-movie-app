@@ -9,17 +9,18 @@ const StyledSearchListTtitles = styled.div`
   top: 100%;
   left: 0;
   z-index: 888;
-  
+
   ul {
     padding: 0;
     margin: 0;
     list-style: none;
   }
 
-  .not-found, .error {
+  .not-found,
+  .error {
     margin: 0;
     padding: 15px 8px;
-    font-family: 'Roboto Condensed', sans-serif;
+    font-family: "Roboto Condensed", sans-serif;
     font-size: 12px;
     font-weight: 700;
     text-align: center;

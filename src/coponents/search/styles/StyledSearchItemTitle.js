@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledSearchItemTitle = styled.li`
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
 
   a {
     display: block;
@@ -14,8 +14,6 @@ const StyledSearchItemTitle = styled.li`
   a:hover {
     background: ${(props) => props.theme.surface};
   }
-  
-
 `;
 
 export default StyledSearchItemTitle;

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark as fasBookmark } from "@fortawesome/fontawesome-free-solid";
 import { faBookmark as farBookmark } from "@fortawesome/fontawesome-free-regular";
 import Title from "../Title";
-import PopupBox from "./PopupBox"
+import PopupBox from "./PopupBox";
 import PropTypes from "prop-types";
 
 const About = ({ title, date, lastDate, infobar }) => {
@@ -42,9 +42,7 @@ const About = ({ title, date, lastDate, infobar }) => {
 
   const addPopup = () => {
     let currentAction = [...actionArray];
-    const message = isSaved
-      ? "Unsaved successfully"
-      : "Saved successfully";
+    const message = isSaved ? "Unsaved successfully" : "Saved successfully";
 
     currentAction.push({ message, time: Date.now() });
     setActionArray(currentAction);
@@ -71,7 +69,6 @@ const About = ({ title, date, lastDate, infobar }) => {
     </StyledAbout>
   );
 };
-
 
 About.propTypes = {
   title: PropTypes.string.isRequired,

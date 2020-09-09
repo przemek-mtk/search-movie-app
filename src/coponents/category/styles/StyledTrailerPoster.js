@@ -46,7 +46,9 @@ const StyledPoster = styled.div`
       width: 210px;
 
       img {
-        border: 2px solid ${(props) => (props.active ? props.theme.primary : props.theme.secondary)};
+        border: 2px solid
+          ${(props) =>
+            props.active ? props.theme.primary : props.theme.secondary};
       }
 
       .play {
@@ -60,8 +62,7 @@ const StyledPoster = styled.div`
       }
     `}
 
-
-    ${(props) =>
+  ${(props) =>
     props.player &&
     css`
       margin: 5px 5px 5px 0;

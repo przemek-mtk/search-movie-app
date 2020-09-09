@@ -6,7 +6,7 @@ const StyledReviewPost = styled.div`
   background: ${(props) => props.theme.surface};
   color: ${(props) => props.theme.onsurface};
   border-radius: 4px;
-  box-shadow: 0 0 4px ${props => props.theme.shadow};
+  box-shadow: 0 0 4px ${(props) => props.theme.shadow};
 
   .review-post__author,
   .review-post__content {
@@ -29,11 +29,11 @@ const StyledReviewPost = styled.div`
   }
 
   .review-post__content:before {
-    content: '';
+    content: "";
     display: ${(props) => (props.isGreater ? "block" : "none")};
     width: 100%;
     height: 50%;
-    background: ${props => props.theme.surfaceGradient};
+    background: ${(props) => props.theme.surfaceGradient};
     position: absolute;
     bottom: 0;
     left: 0;

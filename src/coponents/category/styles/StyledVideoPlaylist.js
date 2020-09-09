@@ -6,8 +6,7 @@ const StyledVideosPlaylist = styled.div`
   height: 100vh;
   top: 0;
   left: 0;
-  background: rgba(200, 200, 200, 0.4);
-  /* background: rgba(20, 20, 20, 0.4); */
+  background: rgba(180, 180, 180, 0.4);
 
   .player-box {
     width: 100%;

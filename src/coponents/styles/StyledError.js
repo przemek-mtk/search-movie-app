@@ -5,7 +5,7 @@ const StyledError = styled.div`
   margin: 0 auto;
   max-width: 700px;
   text-transform: capitalize;
-
+  flex-grow: 1;
 
   div {
     margin: 15px 0;

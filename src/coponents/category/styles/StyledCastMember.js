@@ -26,7 +26,7 @@ const StyledCastMember = styled.div`
   }
 
   .cast-member__info p:last-of-type {
-    color: ${props => props.theme.secondary};
+    color: ${(props) => props.theme.secondary};
   }
 
   @media (min-width: 700px) {

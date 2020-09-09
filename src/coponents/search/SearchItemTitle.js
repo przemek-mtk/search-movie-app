@@ -4,7 +4,6 @@ import StyledSearchItemTitle from "./styles/StyledSearchItemTitle";
 import { SearchContext } from "../../context/SearchContext";
 import PropTypes from "prop-types";
 
-
 const SearchItemTitle = ({ item }) => {
   const { mediaType } = useContext(SearchContext);
   const { media_type, id, name } = item;
@@ -13,15 +12,13 @@ const SearchItemTitle = ({ item }) => {
 
   return (
     <StyledSearchItemTitle>
-      <Link to={`/${type}/${id}`}>
-        {title}
-      </Link>
+      <Link to={`/${type}/${id}`}>{title}</Link>
     </StyledSearchItemTitle>
   );
 };
 
 SearchItemTitle.propTypes = {
-  item: PropTypes.object
-}
+  item: PropTypes.object,
+};
 
 export default SearchItemTitle;

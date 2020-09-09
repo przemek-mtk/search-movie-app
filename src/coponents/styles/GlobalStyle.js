@@ -17,6 +17,11 @@ const GlobalStyle = createGlobalStyle`
     background: ${(props) => props.theme.background};
   }
 
+  #root {
+    display: flex;
+    flex-direction: column;
+  }
+
 
   .body--overflow-hidden {
     overflow: hidden;
@@ -24,8 +29,9 @@ const GlobalStyle = createGlobalStyle`
 
   .container {
     max-width: 900px;
-    margin: 0 auto;
-    box-shadow: 0 0 4px ${props => props.theme.shadow};}
+    margin: 10px auto;
+    box-shadow: 0 0 4px ${(props) => props.theme.shadow};
+    flex-grow: 1;
   }
 
   /* btn used in 2 components */
@@ -49,7 +55,6 @@ const GlobalStyle = createGlobalStyle`
   .show-more:disabled {
     opacity: 0.4;
   }
-
 `;
 
 export default GlobalStyle;

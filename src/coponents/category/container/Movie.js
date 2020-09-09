@@ -16,7 +16,7 @@ const Movie = (props) => {
 
   const { data } = useContext(CategoryContext);
   const { config } = useContext(ConfigContext);
-  const { backdrop_sizes, poster_sizes, profile_sizes, still_sizes } = config;
+  const { backdrop_sizes, poster_sizes } = config;
   let {
     backdrop_path,
     poster_path,

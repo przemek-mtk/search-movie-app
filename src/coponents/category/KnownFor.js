@@ -1,6 +1,6 @@
 import React from "react";
 import StyledKnownFor from "./styles/StyledKnownFor";
-import KnownForPoster from "./KnownForPoster"
+import KnownForPoster from "./KnownForPoster";
 import PropTypes from "prop-types";
 
 const KnownFor = ({ title, movies }) => {
@@ -11,9 +11,7 @@ const KnownFor = ({ title, movies }) => {
 
         <div className="movies-list">
           {movies.map((movie) => {
-            return (
-             <KnownForPoster key={movie.id} movie={movie}  />
-            );
+            return <KnownForPoster key={movie.id} movie={movie} />;
           })}
         </div>
       </StyledKnownFor>
@@ -23,7 +21,7 @@ const KnownFor = ({ title, movies }) => {
 
 KnownFor.propTypes = {
   title: PropTypes.string.isRequired,
-  movies: PropTypes.array.isRequired
+  movies: PropTypes.array.isRequired,
 };
 
 export default KnownFor;

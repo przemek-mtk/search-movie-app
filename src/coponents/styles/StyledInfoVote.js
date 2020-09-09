@@ -5,7 +5,6 @@ const StyledInfoVote = styled.div`
   justify-content: flex-start;
   align-items: center;
   padding-top: 4px;
-  
 
   .vote__icon {
     width: 24px;

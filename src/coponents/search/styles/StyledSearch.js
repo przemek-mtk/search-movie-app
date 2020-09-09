@@ -3,6 +3,7 @@ import styled from "styled-components";
 const StyledSearch = styled.section`
   width: 100%;
   font-family: "Open Sans", sans-serif;
+  flex-grow: 1;
 
   .search-box {
     width: 90%;

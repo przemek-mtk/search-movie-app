@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import StyledUnsaveBtn from "./styles/StyledUnsaveBtn";
 import UnsaveOption from "./UnsaveOption";
 import PropTypes from "prop-types";

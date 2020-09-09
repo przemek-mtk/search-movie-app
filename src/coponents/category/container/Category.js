@@ -36,14 +36,14 @@ const CategoryContent = (props) => {
       />
     </StyledBoxSpinner>
   ) : (
-    <div>
+    <>
       <Switch>
         <Route path="/movie/:id" component={Movie} />
         <Route path="/tv/:id" component={Tv} />
         <Route path="/person/:id" component={Person} />
         <Route path="*" component={NotFound} />
       </Switch>
-    </div>
+    </>
   );
 };
 

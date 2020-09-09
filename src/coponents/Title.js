@@ -2,7 +2,7 @@ import React from "react";
 import StyledTitle from "./styles/StyledTitle";
 import PropTypes from "prop-types";
 
-const Title = ({ title, date, lastDate, ...rest}) => {
+const Title = ({ title, date, lastDate, ...rest }) => {
   const year = new Date(date).getFullYear();
   const lastYear = lastDate ? new Date(lastDate).getFullYear() : null; //only for tv
   return (

@@ -10,6 +10,7 @@ import SearchContextProvider from "./context/SearchContext";
 import { NightmodeContext } from "./context/NightmodeContext";
 import Category from "./coponents/category/container/Category";
 import NotFound from "./coponents/NotFound";
+import Footer from "./coponents/Footer";
 
 function App() {
   const { nightmode } = useContext(NightmodeContext);
@@ -27,6 +28,8 @@ function App() {
               <Route path="/:category/:id" component={Category} />
               <Route path="*" component={NotFound} />
             </Switch>
+
+            <Footer />
 
             <GloabalStyle />
           </>

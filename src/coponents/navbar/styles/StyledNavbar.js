@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledNavbar = styled.nav`
   width: 100%;
-  background: ${props => props.theme.surface};
+  background: ${(props) => props.theme.surface};
   padding: 6px 0;
   position: relative;
 `;
@@ -25,7 +25,8 @@ export const StyledList = styled.ul`
     margin: 0 10px;
   }
 
-  .nav-list__item a, .nav-list__item button {
+  .nav-list__item a,
+  .nav-list__item button {
     display: block;
     width: 100%;
     height: 100%;
@@ -33,17 +34,19 @@ export const StyledList = styled.ul`
     line-height: 44px;
     text-align: center;
     text-decoration: none;
-    color: ${props => props.theme.primary};
+    color: ${(props) => props.theme.primary};
     background: transparent;
     border: none;
     cursor: pointer;
     outline: none;
-  } 
+  }
 
   .nav-list__item:hover {
     /* ze względu na opacity dla bg i border */
-      background: ${props => (props.nightmode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)' )};
-      border: 2px solid ${props => (props.nightmode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.2)' )};
-    }
-
+    background: ${(props) =>
+      props.nightmode ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.1)"};
+    border: 2px solid
+      ${(props) =>
+        props.nightmode ? "rgba(255, 255, 255, 0.2)" : "rgba(0, 0, 0, 0.2)"};
+  }
 `;

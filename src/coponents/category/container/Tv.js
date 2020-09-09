@@ -29,7 +29,7 @@ const Tv = (props) => {
     credits,
     reviews,
   } = data;
-  const { backdrop_sizes, poster_sizes, profile_sizes, still_sizes } = config;
+  const { backdrop_sizes, poster_sizes } = config;
   const trailers =
     videos && videos.results.filter((video) => video.type === "Trailer");
   const cast = credits && credits.cast;

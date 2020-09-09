@@ -1,16 +1,17 @@
 import React from "react";
-import StyledDetailedInfoMeta from "./styles/StyledDetailedInfoMeta"
+import StyledDetailedInfoMeta from "./styles/StyledDetailedInfoMeta";
 import PropTypes from "prop-types";
 
 const DetailedInfoMeta = ({ label, data, unit }) => {
-  return (
-    data ? (
-      <StyledDetailedInfoMeta>
-        <span className="meta_label">{`${label}:`}</span>
-        <span>{data}{unit}</span>
-      </StyledDetailedInfoMeta>
-    ) : null
-  );
+  return data ? (
+    <StyledDetailedInfoMeta>
+      <span className="meta_label">{`${label}:`}</span>
+      <span>
+        {data}
+        {unit}
+      </span>
+    </StyledDetailedInfoMeta>
+  ) : null;
 };
 
 DetailedInfoMeta.propTypes = {

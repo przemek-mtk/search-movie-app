@@ -15,7 +15,6 @@ const StyledBtnOption = styled.button`
   transition: 0.2s ease all;
   align-self: flex-end;
 
-
   &:focus {
     box-shadow: 0 0 3px ${(props) => props.theme.primary};
   }

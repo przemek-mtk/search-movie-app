@@ -3,7 +3,9 @@ import styled from "styled-components";
 const StyledSaved = styled.div`
   padding: 10px;
   max-width: 900px;
+  width: 100%;
   margin: 0 auto;
+  flex-grow: 1;
 
   ul {
     margin: 0;

@@ -9,7 +9,6 @@ export const useOutsideClick = (ref, cb) => {
       }
     };
 
-
     document.addEventListener("click", handleClick);
 
     return () => {
